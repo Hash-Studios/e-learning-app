@@ -215,7 +215,7 @@ class VideosPage extends StatelessWidget {
                 SliverToBoxAdapter(
                   child: Container(
                     width: MediaQuery.of(context).size.width,
-                    height: 240,
+                    height: 245,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: 4,
@@ -234,7 +234,7 @@ class VideosPage extends StatelessWidget {
                 SliverToBoxAdapter(
                   child: Container(
                     width: MediaQuery.of(context).size.width,
-                    height: 240,
+                    height: 245,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: 4,
@@ -253,7 +253,7 @@ class VideosPage extends StatelessWidget {
                 SliverToBoxAdapter(
                   child: Container(
                     width: MediaQuery.of(context).size.width,
-                    height: 240,
+                    height: 245,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: 4,
@@ -272,7 +272,7 @@ class VideosPage extends StatelessWidget {
                 SliverToBoxAdapter(
                   child: Container(
                     width: MediaQuery.of(context).size.width,
-                    height: 240,
+                    height: 245,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: 4,
@@ -326,7 +326,7 @@ class HomePage extends StatelessWidget {
                 SliverToBoxAdapter(
                   child: Container(
                     width: MediaQuery.of(context).size.width,
-                    height: 240,
+                    height: 245,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: 4,
@@ -345,7 +345,7 @@ class HomePage extends StatelessWidget {
                 SliverToBoxAdapter(
                   child: Container(
                     width: MediaQuery.of(context).size.width,
-                    height: 240,
+                    height: 245,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: 4,
@@ -407,6 +407,7 @@ class LeaderboardPage extends StatelessWidget {
                         width: MediaQuery.of(context).size.width,
                         height: 240,
                         child: ListView.builder(
+                          physics: ScrollPhysics(),
                           itemCount: 3,
                           itemBuilder: (context, index) {
                             return Padding(
@@ -492,58 +493,16 @@ class LeaderboardPage extends StatelessWidget {
                 ),
                 SliverToBoxAdapter(
                   child: SectionHeader(
-                    text: 'Best of Chemistry',
+                    text: 'My Statistics',
                     onPressed: () {},
                   ),
                 ),
                 SliverToBoxAdapter(
                   child: Container(
                     width: MediaQuery.of(context).size.width,
-                    height: 240,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 4,
-                      itemBuilder: (context, index) {
-                        return VideoCard();
-                      },
-                    ),
-                  ),
-                ),
-                SliverToBoxAdapter(
-                  child: SectionHeader(
-                    text: 'Best of Maths',
-                    onPressed: () {},
-                  ),
-                ),
-                SliverToBoxAdapter(
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 240,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 4,
-                      itemBuilder: (context, index) {
-                        return VideoCard();
-                      },
-                    ),
-                  ),
-                ),
-                SliverToBoxAdapter(
-                  child: SectionHeader(
-                    text: 'Best of Biology',
-                    onPressed: () {},
-                  ),
-                ),
-                SliverToBoxAdapter(
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 240,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 4,
-                      itemBuilder: (context, index) {
-                        return VideoCard();
-                      },
+                    height: 245,
+                    child: VideoCard(
+                      long: true,
                     ),
                   ),
                 ),
