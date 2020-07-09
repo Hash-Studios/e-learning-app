@@ -26,7 +26,7 @@ class _TopBarState extends State<TopBar> {
       color: CupertinoColors.white,
       width: MediaQuery.of(context).size.width,
       height: widget.expanded
-          ? MediaQuery.of(context).size.height * 0.36
+          ? MediaQuery.of(context).size.height * 0.34
           : MediaQuery.of(context).size.height * 0.19,
       child: Column(
         mainAxisSize: MainAxisSize.min,

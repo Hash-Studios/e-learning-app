@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as material;
 
 class VideoCard extends StatelessWidget {
+  final bool long;
   const VideoCard({
+    @required this.long,
     Key key,
   }) : super(key: key);
 
@@ -15,12 +17,12 @@ class VideoCard extends StatelessWidget {
       child: CardWidget(
         gradient: false,
         button: true,
-        width: 180,
+        width: long ? 360 : 180,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Container(
-              width: 180,
+              width: long ? 360 : 180,
               height: 90,
               decoration: BoxDecoration(
                 image: DecorationImage(

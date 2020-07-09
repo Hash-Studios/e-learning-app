@@ -1,10 +1,12 @@
 import 'package:elearning/theme/box_icons_icons.dart';
 import 'package:elearning/theme/config.dart';
+import 'package:elearning/ui/widgets/card.dart';
 import 'package:elearning/ui/widgets/sectionHeader.dart';
 import 'package:elearning/ui/widgets/topBar.dart';
 import 'package:elearning/ui/widgets/videoCard.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' as material;
+import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -12,6 +14,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  int tabNo = 0;
   CupertinoTabController controller;
   @override
   void initState() {
@@ -28,26 +31,33 @@ class _HomeState extends State<Home> {
           backgroundColor: Colors().secondColor(1),
           controller: controller,
           tabBar: CupertinoTabBar(
+            onTap: (value) {
+              setState(() {
+                tabNo = value;
+              });
+            },
             activeColor: material.Colors.lightBlue,
             inactiveColor: Color(0xFFADADAD),
             items: [
               BottomNavigationBarItem(
-                  icon: Icon(BoxIcons.bx_home_circle), title: Text("Home")),
+                  icon: Icon(BoxIcons.bx_home_circle),
+                  title: tabNo == 0 ? Text("Home") : Container()),
               BottomNavigationBarItem(
-                  icon: Icon(BoxIcons.bx_calendar), title: Text("Planner")),
+                  icon: Icon(BoxIcons.bx_calendar),
+                  title: tabNo == 1 ? Text("Planner") : Container()),
               BottomNavigationBarItem(icon: Container()),
               BottomNavigationBarItem(
-                  icon: Icon(BoxIcons.bxs_videos), title: Text("Videos")),
+                  icon: Icon(BoxIcons.bxs_videos),
+                  title: tabNo == 3 ? Text("Videos") : Container()),
               BottomNavigationBarItem(
-                  icon: Icon(BoxIcons.bx_stats), title: Text("Leaderboard")),
+                  icon: Icon(BoxIcons.bx_stats),
+                  title: tabNo == 4 ? Text("Leaderboard") : Container()),
             ],
           ),
           tabBuilder: (context, index) => (index == 0)
               ? HomePage()
               : (index == 1)
-                  ? Container(
-                      color: CupertinoColors.activeGreen,
-                    )
+                  ? PlannerPage()
                   : (index == 2)
                       ? Container(
                           color: CupertinoColors.activeOrange,
@@ -99,6 +109,88 @@ class _HomeState extends State<Home> {
   }
 }
 
+class PlannerPage extends StatelessWidget {
+  PlannerPage({
+    Key key,
+  }) : super(key: key);
+
+  TextEditingController controller = TextEditingController();
+  @override
+  Widget build(BuildContext context) {
+    return CupertinoPageScaffold(
+      backgroundColor: Colors().secondColor(1),
+      child: Stack(
+        alignment: Alignment.center,
+        children: <Widget>[
+          SafeArea(
+            child: CustomScrollView(
+              slivers: <Widget>[
+                SliverFixedExtentList(
+                    delegate: SliverChildListDelegate.fixed([Container()]),
+                    itemExtent: MediaQuery.of(context).size.height * 0.16),
+                SliverToBoxAdapter(
+                  child: SectionHeader(
+                    text: 'Today\'s Work',
+                    onPressed: () {},
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 240,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 2,
+                      itemBuilder: (context, index) {
+                        return VideoCard(long: true);
+                      },
+                    ),
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: SectionHeader(
+                    text: 'Calendar',
+                    onPressed: () {},
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 450,
+                    child: CardWidget(
+                      button: false,
+                      gradient: false,
+                      child: material.Material(
+                        child: CalendarCarousel(
+                          isScrollable: false,
+                          todayButtonColor: material.Colors.lightBlue,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: SizedBox(
+                    height: 70,
+                    child: Text(""),
+                  ),
+                )
+              ],
+            ),
+          ),
+          Positioned(
+            top: 0,
+            child: TopBar(
+              controller: controller,
+              expanded: false,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
 class VideosPage extends StatelessWidget {
   VideosPage({
     Key key,
@@ -132,7 +224,7 @@ class VideosPage extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemCount: 4,
                       itemBuilder: (context, index) {
-                        return VideoCard();
+                        return VideoCard(long: false);
                       },
                     ),
                   ),
@@ -151,7 +243,7 @@ class VideosPage extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemCount: 4,
                       itemBuilder: (context, index) {
-                        return VideoCard();
+                        return VideoCard(long: false);
                       },
                     ),
                   ),
@@ -170,7 +262,7 @@ class VideosPage extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemCount: 4,
                       itemBuilder: (context, index) {
-                        return VideoCard();
+                        return VideoCard(long: false);
                       },
                     ),
                   ),
@@ -189,7 +281,7 @@ class VideosPage extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemCount: 4,
                       itemBuilder: (context, index) {
-                        return VideoCard();
+                        return VideoCard(long: false);
                       },
                     ),
                   ),
@@ -243,7 +335,7 @@ class HomePage extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemCount: 4,
                       itemBuilder: (context, index) {
-                        return VideoCard();
+                        return VideoCard(long: false);
                       },
                     ),
                   ),
@@ -262,7 +354,7 @@ class HomePage extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemCount: 4,
                       itemBuilder: (context, index) {
-                        return VideoCard();
+                        return VideoCard(long: false);
                       },
                     ),
                   ),
