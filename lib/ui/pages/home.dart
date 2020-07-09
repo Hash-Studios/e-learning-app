@@ -53,9 +53,7 @@ class _HomeState extends State<Home> {
                           color: CupertinoColors.activeOrange,
                         )
                       : (index == 3)
-                          ? Container(
-                              color: CupertinoColors.destructiveRed,
-                            )
+                          ? VideosPage()
                           : Container(
                               color: CupertinoColors.extraLightBackgroundGray,
                             ),
@@ -97,6 +95,117 @@ class _HomeState extends State<Home> {
                   onPressed: () {}),
             )),
       ],
+    );
+  }
+}
+
+class VideosPage extends StatelessWidget {
+  VideosPage({
+    Key key,
+  }) : super(key: key);
+
+  TextEditingController controller = TextEditingController();
+  @override
+  Widget build(BuildContext context) {
+    return CupertinoPageScaffold(
+      backgroundColor: Colors().secondColor(1),
+      child: Stack(
+        alignment: Alignment.center,
+        children: <Widget>[
+          SafeArea(
+            child: CustomScrollView(
+              slivers: <Widget>[
+                SliverFixedExtentList(
+                    delegate: SliverChildListDelegate.fixed([Container()]),
+                    itemExtent: MediaQuery.of(context).size.height * 0.16),
+                SliverToBoxAdapter(
+                  child: SectionHeader(
+                    text: 'Best of Physics',
+                    onPressed: () {},
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 240,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 4,
+                      itemBuilder: (context, index) {
+                        return VideoCard();
+                      },
+                    ),
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: SectionHeader(
+                    text: 'Best of Chemistry',
+                    onPressed: () {},
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 240,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 4,
+                      itemBuilder: (context, index) {
+                        return VideoCard();
+                      },
+                    ),
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: SectionHeader(
+                    text: 'Best of Maths',
+                    onPressed: () {},
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 240,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 4,
+                      itemBuilder: (context, index) {
+                        return VideoCard();
+                      },
+                    ),
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: SectionHeader(
+                    text: 'Best of Biology',
+                    onPressed: () {},
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 240,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 4,
+                      itemBuilder: (context, index) {
+                        return VideoCard();
+                      },
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            top: 0,
+            child: TopBar(
+              controller: controller,
+              expanded: false,
+            ),
+          )
+        ],
+      ),
     );
   }
 }
@@ -163,7 +272,10 @@ class HomePage extends StatelessWidget {
           ),
           Positioned(
             top: 0,
-            child: TopBar(controller: controller),
+            child: TopBar(
+              controller: controller,
+              expanded: true,
+            ),
           )
         ],
       ),

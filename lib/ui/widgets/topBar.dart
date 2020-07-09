@@ -8,9 +8,11 @@ class TopBar extends StatefulWidget {
   const TopBar({
     Key key,
     @required this.controller,
+    @required this.expanded,
   }) : super(key: key);
 
   final TextEditingController controller;
+  final bool expanded;
 
   @override
   _TopBarState createState() => _TopBarState();
@@ -23,7 +25,9 @@ class _TopBarState extends State<TopBar> {
     return Container(
       color: CupertinoColors.white,
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * 0.33,
+      height: widget.expanded
+          ? MediaQuery.of(context).size.height * 0.36
+          : MediaQuery.of(context).size.height * 0.19,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
@@ -94,64 +98,64 @@ class _TopBarState extends State<TopBar> {
                   fontFamily: 'Red Hat Display'),
             ),
           ),
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * 0.161,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: 4,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.fromLTRB(15, 15, 10, 25),
-                  child: CardWidget(
-                    duration: 200,
-                    border: tab == index
-                        ? Border(
-                            bottom: BorderSide(
-                                color: tab == 0
-                                    ? Color(0xFF2828FF)
-                                    : tab == 1
-                                        ? Color(0xFFFF2E2E)
-                                        : tab == 2
-                                            ? Color(0xFFFFD700)
-                                            : Color(0xFF33FF33),
-                                width: 5),
-                          )
-                        : null,
-                    child: Center(
-                      child: Column(
-                        mainAxisAlignment:
-                            material.MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          Icon(index == 0
-                              ? BoxIcons.bx_shape_circle
-                              : index == 1
-                                  ? BoxIcons.bx_shape_polygon
-                                  : index == 2
-                                      ? BoxIcons.bx_shape_square
-                                      : BoxIcons.bx_shape_triangle),
-                          Text(index == 0
-                              ? "Maths"
-                              : index == 1
-                                  ? "Physics"
-                                  : index == 2 ? "Chemistry" : "Biology")
-                        ],
-                      ),
-                    ),
-                    func: () {
-                      setState(() {
-                        tab = index;
-                      });
+          widget.expanded
+              ? Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.161,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 4,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.fromLTRB(15, 15, 10, 25),
+                        child: CardWidget(
+                          gradient: false,
+                          button: true,
+                          duration: 200,
+                          border: tab == index
+                              ? Border(
+                                  bottom: BorderSide(
+                                      color: tab == 0
+                                          ? Color(0xFF2828FF)
+                                          : tab == 1
+                                              ? Color(0xFFFF2E2E)
+                                              : tab == 2
+                                                  ? Color(0xFFFFD700)
+                                                  : Color(0xFF33FF33),
+                                      width: 5),
+                                )
+                              : null,
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment:
+                                  material.MainAxisAlignment.spaceEvenly,
+                              children: <Widget>[
+                                Icon(index == 0
+                                    ? BoxIcons.bx_shape_circle
+                                    : index == 1
+                                        ? BoxIcons.bx_shape_polygon
+                                        : index == 2
+                                            ? BoxIcons.bx_shape_square
+                                            : BoxIcons.bx_shape_triangle),
+                                Text(index == 0
+                                    ? "Maths"
+                                    : index == 1
+                                        ? "Physics"
+                                        : index == 2 ? "Chemistry" : "Biology")
+                              ],
+                            ),
+                          ),
+                          func: () {
+                            setState(() {
+                              tab = index;
+                            });
+                          },
+                        ),
+                      );
                     },
-                    button: true,
-                    gradient: false,
-                    width: 90,
-                    height: 90,
                   ),
-                );
-              },
-            ),
-          ),
+                )
+              : Container(),
         ],
       ),
     );
