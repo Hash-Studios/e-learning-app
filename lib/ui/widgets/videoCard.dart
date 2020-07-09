@@ -1,6 +1,8 @@
 import 'package:elearning/theme/box_icons_icons.dart';
 import 'package:elearning/theme/config.dart';
+import 'package:elearning/ui/pages/video.dart';
 import 'package:elearning/ui/widgets/card.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' as material;
 
 class VideoCard extends material.StatelessWidget {
@@ -74,7 +76,8 @@ class VideoCard extends material.StatelessWidget {
             material.Spacer(),
             material.Padding(
               padding: const material.EdgeInsets.only(top: 6.0),
-              child: material.Container(
+              child: material.GestureDetector(
+                child: material.Container(
                   padding: material.EdgeInsets.fromLTRB(0, 14, 0, 14),
                   decoration: material.BoxDecoration(gradient: Colors().waves),
                   child: material.Row(
@@ -90,7 +93,17 @@ class VideoCard extends material.StatelessWidget {
                             fontSize: 18),
                       )
                     ],
-                  )),
+                  ),
+                ),
+                onTap: () {
+                  material.Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                      builder: (context) => VideoPage(),
+                    ),
+                  );
+                },
+              ),
             ),
           ],
         ),
