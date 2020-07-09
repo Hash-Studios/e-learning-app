@@ -99,7 +99,7 @@ class Colors {
   );
 
   LinearGradient alive = LinearGradient(
-    colors: [Color(0xFFBD3F32), Color(0xFFCB356B)],
+    colors: [Color(0xFFCB356B), Color(0xFFBD3F32)],
     begin: Alignment.topRight,
     end: Alignment.bottomLeft,
   );
