@@ -15,10 +15,7 @@ void main() {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
         .then((value) => runApp(
               RestartWidget(
-                child: MultiProvider(
-                  providers: [],
-                  child: MyApp(),
-                ),
+                child: MyApp(),
               ),
             ));
   });
