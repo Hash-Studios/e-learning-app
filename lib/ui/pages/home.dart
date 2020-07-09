@@ -402,7 +402,24 @@ class _TopBarState extends State<TopBar> {
                   padding: const EdgeInsets.fromLTRB(15, 15, 10, 25),
                   child: CardWidget(
                     child: Center(
-                      child: Text(index.toString()),
+                      child: Column(
+                        mainAxisAlignment:
+                            material.MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Icon(index == 0
+                              ? BoxIcons.bx_shape_circle
+                              : index == 1
+                                  ? BoxIcons.bx_shape_polygon
+                                  : index == 2
+                                      ? BoxIcons.bx_shape_square
+                                      : BoxIcons.bx_shape_triangle),
+                          Text(index == 0
+                              ? "Maths"
+                              : index == 1
+                                  ? "Physics"
+                                  : index == 2 ? "Chemistry" : "Physics")
+                        ],
+                      ),
                     ),
                     func: () {
                       setState(() {
