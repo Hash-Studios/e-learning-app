@@ -141,6 +141,19 @@ class HomePage extends StatelessWidget {
                     onPressed: () {},
                   ),
                 ),
+                SliverToBoxAdapter(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 240,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 4,
+                      itemBuilder: (context, index) {
+                        return VideoCard();
+                      },
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
