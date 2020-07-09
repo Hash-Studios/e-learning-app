@@ -1,96 +1,97 @@
 import 'package:elearning/theme/box_icons_icons.dart';
+import 'package:elearning/theme/config.dart';
 import 'package:elearning/ui/widgets/card.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as material;
 
-class VideoCard extends StatelessWidget {
+class VideoCard extends material.StatelessWidget {
   final bool long;
   const VideoCard({
-    @required this.long,
-    Key key,
+    @material.required this.long,
+    material.Key key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
+  material.Widget build(material.BuildContext context) {
+    return material.Padding(
+      padding: const material.EdgeInsets.all(10.0),
       child: CardWidget(
         gradient: false,
         button: true,
         width: long ? 360 : 180,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Container(
+        child: material.Column(
+          mainAxisAlignment: material.MainAxisAlignment.start,
+          children: <material.Widget>[
+            material.Container(
               width: long ? 360 : 180,
               height: 90,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/images/video.jpg'),
-                    fit: BoxFit.cover),
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(10),
-                  topRight: Radius.circular(10),
+              decoration: material.BoxDecoration(
+                image: material.DecorationImage(
+                    image: material.AssetImage('assets/images/video.jpg'),
+                    fit: material.BoxFit.cover),
+                borderRadius: material.BorderRadius.only(
+                  topLeft: material.Radius.circular(10),
+                  topRight: material.Radius.circular(10),
                 ),
               ),
-              child: Text(""),
+              child: material.Text(""),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
+            material.Padding(
+              padding: const material.EdgeInsets.all(8.0),
+              child: material.Text(
                 "Stars - What are they made up of ?",
-                overflow: TextOverflow.ellipsis,
+                overflow: material.TextOverflow.ellipsis,
                 maxLines: 2,
-                style: TextStyle(
-                    color: Color(0xFF535353),
+                style: material.TextStyle(
+                    color: material.Color(0xFF535353),
                     fontFamily: 'Red Hat Display',
                     fontSize: 16),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Row(
-                children: <Widget>[
-                  Icon(BoxIcons.bx_bar_chart_alt_2, size: 16),
-                  Text(
+            material.Padding(
+              padding: const material.EdgeInsets.symmetric(horizontal: 8.0),
+              child: material.Row(
+                children: <material.Widget>[
+                  material.Icon(BoxIcons.bx_bar_chart_alt_2, size: 16),
+                  material.Text(
                     "Beginner",
-                    style: TextStyle(
-                        color: Color(0xFFADADAD),
+                    style: material.TextStyle(
+                        color: material.Color(0xFFADADAD),
                         fontFamily: 'Red Hat Display',
                         fontSize: 10),
                   ),
-                  Spacer(),
-                  Text(
+                  material.Spacer(),
+                  material.Text(
                     "12 mins",
-                    style: TextStyle(
-                        color: Color(0xFFADADAD),
+                    style: material.TextStyle(
+                        color: material.Color(0xFFADADAD),
                         fontFamily: 'Red Hat Display',
                         fontSize: 10),
                   ),
-                  Icon(BoxIcons.bx_timer, size: 16),
+                  material.Icon(BoxIcons.bx_timer, size: 16),
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 6.0),
-              child: CardWidget(
-                  gradient: true,
-                  button: true,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      Icon(BoxIcons.bx_play_circle,
+            material.Spacer(),
+            material.Padding(
+              padding: const material.EdgeInsets.only(top: 6.0),
+              child: material.Container(
+                  padding: material.EdgeInsets.fromLTRB(0, 14, 0, 14),
+                  decoration: material.BoxDecoration(gradient: Colors().waves),
+                  child: material.Row(
+                    mainAxisAlignment: material.MainAxisAlignment.spaceEvenly,
+                    children: <material.Widget>[
+                      material.Icon(BoxIcons.bx_play_circle,
                           color: material.Colors.white),
-                      Text(
+                      material.Text(
                         "Watch Lecture",
-                        style: TextStyle(
+                        style: material.TextStyle(
                             color: material.Colors.white,
                             fontFamily: 'Red Hat Display',
                             fontSize: 18),
                       )
                     ],
                   )),
-            )
+            ),
           ],
         ),
       ),
