@@ -432,7 +432,11 @@ class _TopBarState extends State<TopBar> {
               width: 50,
               decoration: BoxDecoration(
                 borderRadius: material.BorderRadius.circular(500),
-                color: Color(0xFFC6EDFF),
+                color: tab == 0
+                    ? Color(0xFF2828FF)
+                    : tab == 1
+                        ? Color(0xFFFF2E2E)
+                        : tab == 2 ? Color(0xFFFFD700) : Color(0xFF33FF33),
               ),
             ),
           )
