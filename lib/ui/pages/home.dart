@@ -320,7 +320,7 @@ class _TopBarState extends State<TopBar> {
     return Container(
       color: CupertinoColors.white,
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * 0.32,
+      height: MediaQuery.of(context).size.height * 0.33,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
@@ -393,45 +393,47 @@ class _TopBarState extends State<TopBar> {
           ),
           Container(
             width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * 0.145,
+            height: MediaQuery.of(context).size.height * 0.161,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: 4,
               itemBuilder: (context, index) {
-                return Column(
-                  children: <Widget>[
-                    Padding(
-                      padding: tab == index
-                          ? const EdgeInsets.fromLTRB(15, 15, 10, 15.75)
-                          : const EdgeInsets.fromLTRB(15, 15, 10, 25),
-                      child: CardWidget(
-                        child: Center(
-                          child: Text(index.toString()),
-                        ),
-                        func: () {
-                          setState(() {
-                            tab = index;
-                          });
-                        },
-                        button: true,
-                        gradient: false,
-                        width: 90,
-                        height: 90,
-                      ),
+                return Padding(
+                  padding: const EdgeInsets.fromLTRB(15, 15, 10, 25),
+                  child: CardWidget(
+                    child: Center(
+                      child: Text(index.toString()),
                     ),
-                    tab == index
-                        ? Container(
-                            height: 3,
-                            width: 30,
-                            decoration: BoxDecoration(
-                              borderRadius: material.BorderRadius.circular(500),
-                              color: Color(0xFFC6EDFF),
-                            ),
-                          )
-                        : Container(),
-                  ],
+                    func: () {
+                      setState(() {
+                        tab = index;
+                      });
+                    },
+                    button: true,
+                    gradient: false,
+                    width: 90,
+                    height: 90,
+                  ),
                 );
               },
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomLeft,
+            child: AnimatedContainer(
+              curve: Curves.bounceOut,
+              margin: EdgeInsets.fromLTRB(
+                  tab == 0 ? 35 : tab == 1 ? 150 : tab == 2 ? 265 : 385,
+                  0,
+                  0,
+                  0),
+              duration: Duration(milliseconds: 200),
+              height: 3,
+              width: 50,
+              decoration: BoxDecoration(
+                borderRadius: material.BorderRadius.circular(500),
+                color: Color(0xFFC6EDFF),
+              ),
             ),
           )
         ],
