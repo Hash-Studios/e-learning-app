@@ -23,7 +23,7 @@ class _TopBarState extends State<TopBar> {
     return Container(
       color: CupertinoColors.white,
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * 0.36,
+      height: MediaQuery.of(context).size.height * 0.33,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
@@ -104,6 +104,20 @@ class _TopBarState extends State<TopBar> {
                 return Padding(
                   padding: const EdgeInsets.fromLTRB(15, 15, 10, 25),
                   child: CardWidget(
+                    duration: 200,
+                    border: tab == index
+                        ? Border(
+                            bottom: BorderSide(
+                                color: tab == 0
+                                    ? Color(0xFF2828FF)
+                                    : tab == 1
+                                        ? Color(0xFFFF2E2E)
+                                        : tab == 2
+                                            ? Color(0xFFFFD700)
+                                            : Color(0xFF33FF33),
+                                width: 5),
+                          )
+                        : null,
                     child: Center(
                       child: Column(
                         mainAxisAlignment:
@@ -120,7 +134,7 @@ class _TopBarState extends State<TopBar> {
                               ? "Maths"
                               : index == 1
                                   ? "Physics"
-                                  : index == 2 ? "Chemistry" : "Physics")
+                                  : index == 2 ? "Chemistry" : "Biology")
                         ],
                       ),
                     ),
@@ -138,28 +152,6 @@ class _TopBarState extends State<TopBar> {
               },
             ),
           ),
-          Align(
-            alignment: Alignment.bottomLeft,
-            child: AnimatedContainer(
-              curve: Curves.bounceOut,
-              margin: EdgeInsets.fromLTRB(
-                  tab == 0 ? 35 : tab == 1 ? 150 : tab == 2 ? 265 : 385,
-                  0,
-                  0,
-                  0),
-              duration: Duration(milliseconds: 200),
-              height: 3,
-              width: 50,
-              decoration: BoxDecoration(
-                borderRadius: material.BorderRadius.circular(500),
-                color: tab == 0
-                    ? Color(0xFF2828FF)
-                    : tab == 1
-                        ? Color(0xFFFF2E2E)
-                        : tab == 2 ? Color(0xFFFFD700) : Color(0xFF33FF33),
-              ),
-            ),
-          )
         ],
       ),
     );

@@ -44,9 +44,9 @@ class Colors {
   // Color _accentDarkColor = Color(0xFFF0F0F0);
 
   LinearGradient waves = LinearGradient(
-    colors: [Color(0xFFABDCFF), Color(0xFF0396FF)],
-    begin: Alignment.topRight,
-    end: Alignment.bottomLeft,
+    colors: [Color(0xFF0396FF), Color(0xFFABDCFF)],
+    begin: Alignment.bottomRight,
+    end: Alignment.topLeft,
   );
 
   LinearGradient deepSpace = LinearGradient(
@@ -99,7 +99,7 @@ class Colors {
   );
 
   LinearGradient alive = LinearGradient(
-    colors: [Color(0xFFCB356B), Color(0xFFBD3F32)],
+    colors: [Color(0xFFBD3F32), Color(0xFFCB356B)],
     begin: Alignment.topRight,
     end: Alignment.bottomLeft,
   );
