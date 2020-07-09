@@ -10,6 +10,7 @@ class CardWidget extends StatelessWidget {
   final double width;
   final double height;
   final Widget child;
+  final int duration;
   final func;
   CardWidget({
     @required this.gradient,
@@ -18,11 +19,13 @@ class CardWidget extends StatelessWidget {
     this.width,
     this.height,
     @required this.child,
+    this.duration,
     this.func,
   });
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return material.AnimatedContainer(
+      duration: Duration(milliseconds: duration ?? 500),
       width: width,
       height: height,
       decoration: BoxDecoration(
