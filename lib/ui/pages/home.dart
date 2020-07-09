@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -37,28 +38,7 @@ class _HomeState extends State<Home> {
             ],
           ),
           tabBuilder: (context, index) => (index == 0)
-              ? CupertinoPageScaffold(
-                  child: CustomScrollView(
-                  slivers: <Widget>[
-                    CupertinoSliverNavigationBar(
-                      largeTitle: Text("Home"),
-                      backgroundColor: Colors.white,
-                    ),
-                    SliverToBoxAdapter(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Text(
-                            'Show Favorites Only',
-                            style: TextStyle().copyWith(
-                              fontSize: 17.0,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ))
+              ? HomePage()
               : (index == 1)
                   ? Container(
                       color: CupertinoColors.activeGreen,
@@ -112,6 +92,159 @@ class _HomeState extends State<Home> {
                   onPressed: () {}),
             )),
       ],
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  HomePage({
+    Key key,
+  }) : super(key: key);
+
+  TextEditingController controller = TextEditingController();
+  @override
+  Widget build(BuildContext context) {
+    return CupertinoPageScaffold(
+      child: Stack(
+        alignment: Alignment.center,
+        children: <Widget>[
+          SafeArea(
+            child: CustomScrollView(
+              slivers: <Widget>[
+                SliverToBoxAdapter(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        'Show Favorites Only',
+                        style: TextStyle().copyWith(
+                          fontSize: 17.0,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            top: 0,
+            child: TopBar(controller: controller),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class TopBar extends StatelessWidget {
+  const TopBar({
+    Key key,
+    @required this.controller,
+  }) : super(key: key);
+
+  final TextEditingController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: CupertinoColors.white,
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height * 0.32,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Padding(
+            padding:
+                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.04),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: Text(
+                    "Hi, Akshay.",
+                    style: TextStyle(
+                        color: Color(0xFF343434),
+                        fontSize: 24,
+                        fontFamily: 'Red Hat Display'),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: CircleAvatar(
+                    backgroundImage: AssetImage('assets/images/user.png'),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: CupertinoTextField(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                        blurRadius: 15,
+                        offset: Offset(0, 4),
+                        color: Color(0xFF636363).withOpacity(0.2))
+                  ]),
+              padding: EdgeInsets.all(10),
+              style: TextStyle(
+                  color: Color(0xFF343434),
+                  fontSize: 18,
+                  fontFamily: 'Red Hat Display'),
+              enableInteractiveSelection: true,
+              controller: controller,
+              expands: false,
+              inputFormatters: [
+                BlacklistingTextInputFormatter.singleLineFormatter
+              ],
+              keyboardType: TextInputType.text,
+              suffix: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: Icon(
+                  Icons.search,
+                  color: Color(0xFFADADAD),
+                ),
+              ),
+              textInputAction: TextInputAction.search,
+              textCapitalization: TextCapitalization.words,
+              placeholder: "Search",
+              placeholderStyle: TextStyle(
+                  color: Color(0xFFADADAD),
+                  fontSize: 18,
+                  fontFamily: 'Red Hat Display'),
+            ),
+          ),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height * 0.135,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: 4,
+              itemBuilder: (context, index) {
+                return Container(
+                  margin: EdgeInsets.all(8),
+                  width: 90,
+                  height: 90,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                            blurRadius: 25,
+                            offset: Offset(0, 4),
+                            color: Color(0xFF636363).withOpacity(0.2))
+                      ]),
+                );
+              },
+            ),
+          )
+        ],
+      ),
     );
   }
 }

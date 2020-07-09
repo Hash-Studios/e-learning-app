@@ -8,10 +8,11 @@ var kLightTheme = ThemeData(
   accentColor: config.Colors().accentColor(1),
   focusColor: config.Colors().mainColor(1),
   hintColor: config.Colors().secondColor(1),
-  accentTextTheme: TextTheme(headline6: TextStyle(fontFamily: "Proxima Nova")),
+  accentTextTheme:
+      TextTheme(headline6: TextStyle(fontFamily: "Red Hat Display")),
   textTheme: TextTheme(
     button: TextStyle(
-      fontFamily: 'Proxima Nova',
+      fontFamily: 'Red Hat Display',
       fontSize: 16,
       fontWeight: FontWeight.w800,
       color: Color(0xFFFFFFFF),
@@ -19,25 +20,25 @@ var kLightTheme = ThemeData(
     headline5: TextStyle(
       fontSize: 16.0,
       color: Colors.white.withOpacity(1),
-      fontFamily: "Proxima Nova",
+      fontFamily: "Red Hat Display",
     ),
     headline4: TextStyle(
         fontSize: 16,
-        fontFamily: "Proxima Nova",
+        fontFamily: "Red Hat Display",
         fontWeight: FontWeight.w500,
         color: config.Colors().accentColor(1)),
     headline3: TextStyle(
         fontSize: 20,
-        fontFamily: "Proxima Nova",
+        fontFamily: "Red Hat Display",
         fontWeight: FontWeight.w500,
         color: Colors.black),
     headline2: TextStyle(
         fontSize: 24,
-        fontFamily: "Proxima Nova",
+        fontFamily: "Red Hat Display",
         fontWeight: FontWeight.w500,
         color: Colors.black),
     headline1: TextStyle(
-      fontFamily: 'Proxima Nova',
+      fontFamily: 'Red Hat Display',
       color: config.Colors().accentColor(1),
       fontSize: 50,
       fontWeight: FontWeight.w600,
@@ -51,16 +52,16 @@ var kLightTheme = ThemeData(
     headline6: TextStyle(
       fontSize: 13.0,
       color: Colors.white.withOpacity(.85),
-      fontFamily: "Proxima Nova",
+      fontFamily: "Red Hat Display",
     ),
     bodyText2: TextStyle(
-      fontFamily: 'Proxima Nova',
+      fontFamily: 'Red Hat Display',
       fontSize: 14,
       fontWeight: FontWeight.w500,
       color: Colors.white.withOpacity(.75),
     ),
     bodyText1: TextStyle(
-      fontFamily: 'Proxima Nova',
+      fontFamily: 'Red Hat Display',
       fontSize: 24,
       fontWeight: FontWeight.w500,
       color: Colors.white.withOpacity(1),
@@ -81,10 +82,10 @@ var kLightTheme = ThemeData(
 //   accentColor: config.Colors().accentDarkColor(1),
 //   focusColor: config.Colors().mainDarkColor(1),
 //   hintColor: config.Colors().secondDarkColor(1),
-//   accentTextTheme: TextTheme(headline6: TextStyle(fontFamily: "Proxima Nova")),
+//   accentTextTheme: TextTheme(headline6: TextStyle(fontFamily: "Red Hat Display")),
 //   textTheme: TextTheme(
 //     button: TextStyle(
-//       fontFamily: 'Proxima Nova',
+//       fontFamily: 'Red Hat Display',
 //       fontSize: 16,
 //       fontWeight: FontWeight.w800,
 //       color: Color(0xFF181818),
@@ -92,25 +93,25 @@ var kLightTheme = ThemeData(
 //     headline5: TextStyle(
 //       fontSize: 16.0,
 //       color: config.Colors().accentDarkColor(1),
-//       fontFamily: "Proxima Nova",
+//       fontFamily: "Red Hat Display",
 //     ),
 //     headline4: TextStyle(
 //         fontSize: 16,
-//         fontFamily: "Proxima Nova",
+//         fontFamily: "Red Hat Display",
 //         fontWeight: FontWeight.w500,
 //         color: config.Colors().accentDarkColor(1)),
 //     headline3: TextStyle(
 //         fontSize: 20,
-//         fontFamily: "Proxima Nova",
+//         fontFamily: "Red Hat Display",
 //         fontWeight: FontWeight.w500,
 //         color: Colors.white),
 //     headline2: TextStyle(
 //         fontSize: 24,
-//         fontFamily: "Proxima Nova",
+//         fontFamily: "Red Hat Display",
 //         fontWeight: FontWeight.w500,
 //         color: Colors.white),
 //     headline1: TextStyle(
-//       fontFamily: 'Proxima Nova',
+//       fontFamily: 'Red Hat Display',
 //       color: config.Colors().accentDarkColor(1),
 //       fontSize: 50,
 //       fontWeight: FontWeight.w600,
@@ -124,16 +125,16 @@ var kLightTheme = ThemeData(
 //     headline6: TextStyle(
 //       fontSize: 14.0,
 //       color: config.Colors().accentDarkColor(.85),
-//       fontFamily: "Proxima Nova",
+//       fontFamily: "Red Hat Display",
 //     ),
 //     bodyText2: TextStyle(
-//       fontFamily: 'Proxima Nova',
+//       fontFamily: 'Red Hat Display',
 //       fontSize: 14,
 //       fontWeight: FontWeight.w500,
 //       color: config.Colors().accentDarkColor(.85),
 //     ),
 //     bodyText1: TextStyle(
-//       fontFamily: 'Proxima Nova',
+//       fontFamily: 'Red Hat Display',
 //       fontSize: 22,
 //       fontWeight: FontWeight.w500,
 //       color: config.Colors().accentDarkColor(1),
