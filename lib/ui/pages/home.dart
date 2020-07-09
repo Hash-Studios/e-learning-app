@@ -1,7 +1,8 @@
 import 'package:elearning/theme/box_icons_icons.dart';
+import 'package:elearning/theme/config.dart';
 import 'package:elearning/ui/widgets/card.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' as material;
 import 'package:flutter/services.dart';
 
 class Home extends StatefulWidget {
@@ -23,20 +24,21 @@ class _HomeState extends State<Home> {
       alignment: Alignment.center,
       children: <Widget>[
         CupertinoTabScaffold(
+          backgroundColor: Colors().secondColor(1),
           controller: controller,
           tabBar: CupertinoTabBar(
-            activeColor: Colors.lightBlue,
+            activeColor: material.Colors.lightBlue,
             inactiveColor: Color(0xFFADADAD),
             items: [
               BottomNavigationBarItem(
-                  icon: Icon(Icons.home), title: Text("Home")),
+                  icon: Icon(BoxIcons.bx_home_circle), title: Text("Home")),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.calendar_today), title: Text("Planner")),
+                  icon: Icon(BoxIcons.bx_calendar), title: Text("Planner")),
               BottomNavigationBarItem(icon: Container()),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.video_library), title: Text("Videos")),
+                  icon: Icon(BoxIcons.bxs_videos), title: Text("Videos")),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.show_chart), title: Text("Leaderboard")),
+                  icon: Icon(BoxIcons.bx_stats), title: Text("Leaderboard")),
             ],
           ),
           tabBuilder: (context, index) => (index == 0)
@@ -86,11 +88,11 @@ class _HomeState extends State<Home> {
                         offset: Offset(0, 4))
                   ],
                   borderRadius: BorderRadius.circular(500)),
-              child: FloatingActionButton(
+              child: material.FloatingActionButton(
                   elevation: 0,
                   highlightElevation: 0,
-                  backgroundColor: Colors.transparent,
-                  child: Icon(Icons.edit),
+                  backgroundColor: material.Colors.transparent,
+                  child: Icon(BoxIcons.bx_pencil),
                   onPressed: () {}),
             )),
       ],
@@ -107,6 +109,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
+      backgroundColor: Colors().secondColor(1),
       child: Stack(
         alignment: Alignment.center,
         children: <Widget>[
@@ -241,11 +244,12 @@ class VideoCard extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      Icon(BoxIcons.bx_play_circle, color: Colors.white),
+                      Icon(BoxIcons.bx_play_circle,
+                          color: material.Colors.white),
                       Text(
                         "Watch Lecture",
                         style: TextStyle(
-                            color: Colors.white,
+                            color: material.Colors.white,
                             fontFamily: 'Red Hat Display',
                             fontSize: 18),
                       )
@@ -288,7 +292,8 @@ class SectionHeader extends StatelessWidget {
         ),
         Spacer(),
         CupertinoButton(
-          child: Icon(BoxIcons.bx_chevron_right, color: Colors.lightBlue),
+          child:
+              Icon(BoxIcons.bx_chevron_right, color: material.Colors.lightBlue),
           onPressed: onPressed,
         )
       ],
@@ -296,7 +301,7 @@ class SectionHeader extends StatelessWidget {
   }
 }
 
-class TopBar extends StatelessWidget {
+class TopBar extends StatefulWidget {
   const TopBar({
     Key key,
     @required this.controller,
@@ -304,6 +309,12 @@ class TopBar extends StatelessWidget {
 
   final TextEditingController controller;
 
+  @override
+  _TopBarState createState() => _TopBarState();
+}
+
+class _TopBarState extends State<TopBar> {
+  int tab = 0;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -320,18 +331,19 @@ class TopBar extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Text(
                     "Hi, Akshay.",
                     style: TextStyle(
                         color: Color(0xFF343434),
                         fontSize: 24,
-                        fontFamily: 'Red Hat Display'),
+                        fontFamily: 'Red Hat Display',
+                        fontWeight: material.FontWeight.w600),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: CircleAvatar(
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  child: material.CircleAvatar(
                     backgroundImage: AssetImage('assets/images/user.png'),
                   ),
                 ),
@@ -339,16 +351,17 @@ class TopBar extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(15.0),
             child: CupertinoTextField(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Colors.white,
+                  color: material.Colors.white,
                   boxShadow: [
                     BoxShadow(
-                        blurRadius: 15,
-                        offset: Offset(0, 4),
-                        color: Color(0xFF636363).withOpacity(0.2))
+                      blurRadius: 25,
+                      offset: Offset(0, 10),
+                      color: Color(0x1A636363),
+                    ),
                   ]),
               padding: EdgeInsets.all(10),
               style: TextStyle(
@@ -356,7 +369,7 @@ class TopBar extends StatelessWidget {
                   fontSize: 18,
                   fontFamily: 'Red Hat Display'),
               enableInteractiveSelection: true,
-              controller: controller,
+              controller: widget.controller,
               expands: false,
               inputFormatters: [
                 BlacklistingTextInputFormatter.singleLineFormatter
@@ -365,7 +378,7 @@ class TopBar extends StatelessWidget {
               suffix: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Icon(
-                  Icons.search,
+                  BoxIcons.bx_search,
                   color: Color(0xFFADADAD),
                 ),
               ),
@@ -380,24 +393,43 @@ class TopBar extends StatelessWidget {
           ),
           Container(
             width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * 0.135,
+            height: MediaQuery.of(context).size.height * 0.145,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: 4,
               itemBuilder: (context, index) {
-                return Container(
-                  margin: EdgeInsets.all(8),
-                  width: 90,
-                  height: 90,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                            blurRadius: 25,
-                            offset: Offset(0, 4),
-                            color: Color(0xFF636363).withOpacity(0.2))
-                      ]),
+                return Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: tab == index
+                          ? const EdgeInsets.fromLTRB(15, 15, 10, 15.75)
+                          : const EdgeInsets.fromLTRB(15, 15, 10, 25),
+                      child: CardWidget(
+                        child: Center(
+                          child: Text(index.toString()),
+                        ),
+                        func: () {
+                          setState(() {
+                            tab = index;
+                          });
+                        },
+                        button: true,
+                        gradient: false,
+                        width: 90,
+                        height: 90,
+                      ),
+                    ),
+                    tab == index
+                        ? Container(
+                            height: 3,
+                            width: 30,
+                            decoration: BoxDecoration(
+                              borderRadius: material.BorderRadius.circular(500),
+                              color: Color(0xFFC6EDFF),
+                            ),
+                          )
+                        : Container(),
+                  ],
                 );
               },
             ),
