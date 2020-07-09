@@ -101,13 +101,13 @@ class _TopBarState extends State<TopBar> {
           widget.expanded
               ? Container(
                   width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height * 0.161,
+                  height: MediaQuery.of(context).size.height * 0.165,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: 4,
                     itemBuilder: (context, index) {
                       return Padding(
-                        padding: const EdgeInsets.fromLTRB(15, 15, 10, 25),
+                        padding: const EdgeInsets.fromLTRB(15, 15, 10, 30),
                         child: CardWidget(
                           gradient: false,
                           button: true,
