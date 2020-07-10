@@ -1,4 +1,4 @@
-// import 'package:elearning/theme/config.dart';
+import 'package:elearning/theme/config.dart' as config;
 import 'package:elearning/ui/pages/home.dart';
 import 'package:elearning/ui/pages/undefinedScreen.dart';
 import 'package:elearning/ui/pages/video.dart';
@@ -74,6 +74,13 @@ class _MenuDashboardLayoutState extends State<MenuDashboardLayout>
       backgroundColor: backgroundColor,
       body: Stack(
         children: <Widget>[
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            decoration: BoxDecoration(
+              gradient: config.Colors().waves,
+            ),
+          ),
           Menu(
               onMenuTap: onMenuTap,
               slideAnimation: _slideAnimation,
