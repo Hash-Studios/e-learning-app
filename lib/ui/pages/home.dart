@@ -62,12 +62,20 @@ class _HomeState extends State<Home> {
                   onMenuTap: widget.onMenuTap,
                 )
               : (index == 1)
-                  ? PlannerPage()
+                  ? PlannerPage(
+                      onMenuTap: widget.onMenuTap,
+                    )
                   : (index == 2)
                       ? Container(
                           color: CupertinoColors.activeOrange,
                         )
-                      : (index == 3) ? VideosPage() : LeaderboardPage(),
+                      : (index == 3)
+                          ? VideosPage(
+                              onMenuTap: widget.onMenuTap,
+                            )
+                          : LeaderboardPage(
+                              onMenuTap: widget.onMenuTap,
+                            ),
         ),
         Positioned(
             bottom: 0,

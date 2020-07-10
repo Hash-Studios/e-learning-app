@@ -10,7 +10,9 @@ import 'package:flutter/material.dart' as material;
 class PlannerPage extends StatelessWidget {
   PlannerPage({
     Key key,
+    @required this.onMenuTap,
   }) : super(key: key);
+  final Function onMenuTap;
 
   TextEditingController controller = TextEditingController();
   @override
@@ -81,6 +83,7 @@ class PlannerPage extends StatelessWidget {
             child: TopBar(
               controller: controller,
               expanded: false,
+              onMenuTap: onMenuTap,
             ),
           )
         ],

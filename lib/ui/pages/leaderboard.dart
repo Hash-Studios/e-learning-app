@@ -9,8 +9,9 @@ import 'package:flutter/material.dart' as material;
 class LeaderboardPage extends StatelessWidget {
   LeaderboardPage({
     Key key,
+    @required this.onMenuTap,
   }) : super(key: key);
-
+  final Function onMenuTap;
   TextEditingController controller = TextEditingController();
   final List names = ['Sarvesh Mehta', 'Karanjeet Gill', 'Rahul Bose'];
   final List coins = ['3895', '3678', '3675'];
@@ -149,6 +150,7 @@ class LeaderboardPage extends StatelessWidget {
                 TopBar(
                   controller: controller,
                   expanded: false,
+                  onMenuTap: onMenuTap,
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
