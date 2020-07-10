@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:elearning/ui/widgets/card.dart';
 import 'package:intl/intl.dart';
 import 'package:elearning/theme/box_icons_icons.dart';
 import 'package:elearning/theme/config.dart';
@@ -130,7 +131,7 @@ class _HomeState extends State<Home> {
 }
 
 class OverlayWidget extends StatelessWidget {
-  const OverlayWidget({
+  OverlayWidget({
     Key key,
   }) : super(key: key);
   String getStrToday() {
@@ -150,6 +151,20 @@ class OverlayWidget extends StatelessWidget {
     return "$strDay $strMonth $strYear";
   }
 
+  final List names = [
+    'Revision - Kinematics',
+    '3D Geometry',
+    'Revision - Organic Bonds',
+    'Plants and Life'
+  ];
+  final List times = ['5pm-6pm', '6pm-7pm', '7pm-8pm', '8pm-9pm'];
+  final List colors = [
+    Color(0xFFFF0000),
+    Color(0xFF0000FF),
+    Color(0xFFFFFF00),
+    Color(0xFF00FF00)
+  ];
+
   @override
   Widget build(BuildContext context) {
     return BackdropFilter(
@@ -164,7 +179,7 @@ class OverlayWidget extends StatelessWidget {
           children: <Widget>[
             Padding(
               padding:
-                  const EdgeInsets.symmetric(vertical: 24.0, horizontal: 10),
+                  const EdgeInsets.symmetric(vertical: 48.0, horizontal: 10),
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 child: Row(
@@ -190,7 +205,108 @@ class OverlayWidget extends StatelessWidget {
                   ],
                 ),
               ),
-            )
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height * 0.8,
+              child: ListView.builder(
+                physics: ScrollPhysics(),
+                itemCount: 5,
+                itemBuilder: (context, index) {
+                  return index == 4
+                      ? Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 8.0, horizontal: 14),
+                          child: CardWidget(
+                            gradient: true,
+                            button: true,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Padding(
+                                    padding: const EdgeInsets.all(8),
+                                    child: Icon(
+                                      BoxIcons.bx_plus,
+                                      color: Color(0xFFFFFFFF),
+                                    )),
+                                Padding(
+                                  padding: const EdgeInsets.all(8),
+                                  child: Text(
+                                    "Add reminder",
+                                    style: TextStyle(
+                                        fontFamily: 'Red Hat Display',
+                                        fontSize: 18,
+                                        color: Color(0xFFFFFFFF)),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            height: 80,
+                          ),
+                        )
+                      : Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 8.0, horizontal: 14),
+                          child: CardWidget(
+                            gradient: false,
+                            button: false,
+                            child: Row(
+                              children: <Widget>[
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.fromLTRB(8, 8, 8, 2),
+                                      child: Text(
+                                        "${names[index]}.",
+                                        style: TextStyle(
+                                            fontFamily: 'Red Hat Display',
+                                            fontSize: 18,
+                                            color: Color(0xFF585858)),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.fromLTRB(8, 2, 8, 8),
+                                      child: Text(
+                                        "${times[index]}",
+                                        style: TextStyle(
+                                            fontFamily: 'Red Hat Display',
+                                            fontSize: 14,
+                                            color: Color(0xFF585858)),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Spacer(),
+                                Container(
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.3,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                            topLeft: Radius.elliptical(10, 50),
+                                            bottomLeft:
+                                                Radius.elliptical(10, 50)),
+                                        gradient: LinearGradient(
+                                            colors: [
+                                              material.Colors.white,
+                                              colors[index]
+                                            ],
+                                            begin: Alignment.topLeft,
+                                            end: Alignment.bottomRight)),
+                                    child: SizedBox(
+                                      height: 80,
+                                    ))
+                              ],
+                            ),
+                            height: 80,
+                          ),
+                        );
+                },
+              ),
+            ),
           ],
         ),
       ),
