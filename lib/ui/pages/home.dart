@@ -2,6 +2,7 @@ import 'package:elearning/theme/box_icons_icons.dart';
 import 'package:elearning/theme/config.dart';
 import 'package:elearning/ui/widgets/card.dart';
 import 'package:elearning/ui/widgets/sectionHeader.dart';
+import 'package:elearning/ui/widgets/statsCard.dart';
 import 'package:elearning/ui/widgets/topBar.dart';
 import 'package:elearning/ui/widgets/videoCard.dart';
 import 'package:flutter/cupertino.dart';
@@ -501,9 +502,7 @@ class LeaderboardPage extends StatelessWidget {
                   child: Container(
                     width: MediaQuery.of(context).size.width,
                     height: 245,
-                    child: VideoCard(
-                      long: true,
-                    ),
+                    child: StatsCard(),
                   ),
                 ),
               ],
