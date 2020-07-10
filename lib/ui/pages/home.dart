@@ -1,3 +1,5 @@
+import 'dart:ui';
+import 'package:intl/intl.dart';
 import 'package:elearning/theme/box_icons_icons.dart';
 import 'package:elearning/theme/config.dart';
 import 'package:elearning/ui/pages/leaderboard.dart';
@@ -18,9 +20,11 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int tabNo = 0;
+  bool overlayVisible;
   CupertinoTabController controller;
   @override
   void initState() {
+    overlayVisible = false;
     controller = CupertinoTabController(initialIndex: 0);
     super.initState();
   }
@@ -87,6 +91,7 @@ class _HomeState extends State<Home> {
               ),
               onTap: () {},
             )),
+        overlayVisible ? OverlayWidget() : Container(),
         Positioned(
             bottom: 20,
             child: Container(
@@ -110,10 +115,85 @@ class _HomeState extends State<Home> {
                   elevation: 0,
                   highlightElevation: 0,
                   backgroundColor: material.Colors.transparent,
-                  child: Icon(BoxIcons.bx_pencil),
-                  onPressed: () {}),
+                  child: overlayVisible
+                      ? Icon(material.Icons.close)
+                      : Icon(BoxIcons.bx_pencil),
+                  onPressed: () {
+                    setState(() {
+                      overlayVisible = !overlayVisible;
+                    });
+                  }),
             )),
       ],
+    );
+  }
+}
+
+class OverlayWidget extends StatelessWidget {
+  const OverlayWidget({
+    Key key,
+  }) : super(key: key);
+  String getStrToday() {
+    var today = DateFormat().add_yMMMMd().format(DateTime.now());
+    var strDay = today.split(" ")[1].replaceFirst(',', '');
+    if (strDay == '1') {
+      strDay = strDay + "st";
+    } else if (strDay == '2') {
+      strDay = strDay + "nd";
+    } else if (strDay == '3') {
+      strDay = strDay + "rd";
+    } else {
+      strDay = strDay + "th";
+    }
+    var strMonth = today.split(" ")[0];
+    var strYear = today.split(" ")[2];
+    return "$strDay $strMonth $strYear";
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BackdropFilter(
+      filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        color: Color(0xFFEDEDED).withOpacity(0.65),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 24.0, horizontal: 10),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Text(
+                      "Today",
+                      style: TextStyle(
+                          fontFamily: 'Red Hat Display',
+                          fontSize: 24,
+                          color: Color(0xFF343434),
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      getStrToday(),
+                      style: TextStyle(
+                          fontFamily: 'Red Hat Display',
+                          fontSize: 24,
+                          color: Color(0xFF343434),
+                          fontWeight: FontWeight.bold),
+                    )
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
