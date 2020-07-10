@@ -44,6 +44,7 @@ class _OnboardingState extends State<Onboarding> {
             width: MediaQuery.of(context).size.width * 0.6,
             child: Text(
               "Ask questions, earn coins and dominate the global leaderboard.",
+              // overflow: TextOverflow,
               textAlign: TextAlign.center,
               style: TextStyle(
                   fontFamily: 'Red Hat Display',

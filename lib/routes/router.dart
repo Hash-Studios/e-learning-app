@@ -5,6 +5,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:elearning/analytics/analytics_service.dart';
 
+import '../auth/google_auth.dart';
+import 'routing_constants.dart';
+
 List<String> navStack = ["Home"];
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -13,6 +16,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       print(navStack);
       analytics.setCurrentScreen(screenName: HomeRoute);
       return CupertinoPageRoute(builder: (context) => Home());
+    // case GoogleSignInRoute:
+    //   return CupertinoPageRoute(builder: (context) => GoogleAuth());
     // case SearchRoute:
     //   navStack.add("Search");
     //   print(navStack);
