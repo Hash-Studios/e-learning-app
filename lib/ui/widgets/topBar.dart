@@ -9,10 +9,12 @@ class TopBar extends StatefulWidget {
     Key key,
     @required this.controller,
     @required this.expanded,
+    @required this.onMenuTap,
   }) : super(key: key);
 
   final TextEditingController controller;
   final bool expanded;
+  final onMenuTap;
 
   @override
   _TopBarState createState() => _TopBarState();
@@ -50,8 +52,11 @@ class _TopBarState extends State<TopBar> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15),
-                  child: material.CircleAvatar(
-                    backgroundImage: AssetImage('assets/images/user.png'),
+                  child: GestureDetector(
+                    child: material.CircleAvatar(
+                      backgroundImage: AssetImage('assets/images/user.png'),
+                    ),
+                    onTap: widget.onMenuTap,
                   ),
                 ),
               ],

@@ -10,6 +10,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' as material;
 
 class Home extends StatefulWidget {
+  final onMenuTap;
+  Home({this.onMenuTap});
   @override
   _HomeState createState() => _HomeState();
 }
@@ -56,7 +58,9 @@ class _HomeState extends State<Home> {
             ],
           ),
           tabBuilder: (context, index) => (index == 0)
-              ? HomePage()
+              ? HomePage(
+                  onMenuTap: widget.onMenuTap,
+                )
               : (index == 1)
                   ? PlannerPage()
                   : (index == 2)
@@ -107,8 +111,10 @@ class _HomeState extends State<Home> {
 }
 
 class HomePage extends StatelessWidget {
+  final onMenuTap;
   HomePage({
     Key key,
+    @required this.onMenuTap,
   }) : super(key: key);
 
   TextEditingController controller = TextEditingController();
@@ -171,6 +177,7 @@ class HomePage extends StatelessWidget {
             child: TopBar(
               controller: controller,
               expanded: true,
+              onMenuTap: onMenuTap,
             ),
           )
         ],

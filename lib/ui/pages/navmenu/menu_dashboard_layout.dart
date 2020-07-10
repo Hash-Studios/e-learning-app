@@ -71,15 +71,11 @@ class _MenuDashboardLayoutState extends State<MenuDashboardLayout>
     screenWidth = size.width;
 
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          onMenuTap();
-        },
-      ),
       backgroundColor: backgroundColor,
       body: Stack(
         children: <Widget>[
           Menu(
+              onMenuTap: onMenuTap,
               slideAnimation: _slideAnimation,
               menuAnimation: _menuScaleAnimation,
               onMenuItemClicked: onMenuItemClicked),
@@ -89,7 +85,7 @@ class _MenuDashboardLayoutState extends State<MenuDashboardLayout>
             scaleAnimation: _scaleAnimation,
             isCollapsed: isCollapsed,
             screenWidth: screenWidth,
-            child: Home(),
+            child: Home(onMenuTap: onMenuTap),
           ),
         ],
       ),

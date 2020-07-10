@@ -7,9 +7,11 @@ class Menu extends StatelessWidget {
   final Animation<double> menuAnimation;
   final int selectedIndex;
   final Function onMenuItemClicked;
+  final onMenuTap;
 
   const Menu(
       {Key key,
+      @required this.onMenuTap,
       this.slideAnimation,
       this.menuAnimation,
       this.selectedIndex,
@@ -47,7 +49,7 @@ class Menu extends StatelessWidget {
             alignment: Alignment.topRight,
             child: IconButton(
               icon: Icon(BoxIcons.bx_window_close),
-              onPressed: () {},
+              onPressed: onMenuTap,
             )),
         SlideTransition(
           position: slideAnimation,
