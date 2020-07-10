@@ -52,7 +52,7 @@ class _MyAppState extends State<MyApp> {
               )),
       // theme: Provider.of<ThemeModel>(context).currentTheme,
       debugShowCheckedModeBanner: false,
-      home: Onboarding1(),
+      home: Onboarding(),
     );
   }
 }
