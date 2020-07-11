@@ -1,3 +1,4 @@
+import 'package:elearning/ui/pages/help.dart';
 import 'package:elearning/ui/pages/home.dart';
 import 'package:elearning/ui/pages/navmenu/menu_dashboard_layout.dart';
 import 'package:elearning/ui/pages/onboarding1.dart';
@@ -53,7 +54,7 @@ class _MyAppState extends State<MyApp> {
               )),
       // theme: Provider.of<ThemeModel>(context).currentTheme,
       debugShowCheckedModeBanner: false,
-      home: Settings(),
+      home: Help(),
     );
   }
 }

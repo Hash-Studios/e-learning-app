@@ -2,7 +2,7 @@ import 'package:elearning/theme/box_icons_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' as material;
 
-class SectionHeader extends StatelessWidget {
+class SectionHeader extends StatefulWidget {
   const SectionHeader({
     Key key,
     @required this.text,
@@ -10,6 +10,12 @@ class SectionHeader extends StatelessWidget {
   }) : super(key: key);
   final String text;
   final Function onPressed;
+
+  @override
+  _SectionHeaderState createState() => _SectionHeaderState();
+}
+
+class _SectionHeaderState extends State<SectionHeader> {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -24,7 +30,7 @@ class SectionHeader extends StatelessWidget {
               color: Color(0xFF343434)),
         ),
         Text(
-          text,
+          widget.text,
           style: TextStyle().copyWith(
             fontSize: 17.0,
           ),
@@ -33,7 +39,7 @@ class SectionHeader extends StatelessWidget {
         CupertinoButton(
           child:
               Icon(BoxIcons.bx_chevron_right, color: material.Colors.lightBlue),
-          onPressed: onPressed,
+          onPressed: widget.onPressed,
         )
       ],
     );
