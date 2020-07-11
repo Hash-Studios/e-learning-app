@@ -77,7 +77,7 @@ class Menu extends StatelessWidget {
                           backgroundImage: AssetImage('assets/images/user.png'),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 8.0),
+                          padding: const EdgeInsets.only(left: 16.0),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             crossAxisAlignment: CrossAxisAlignment.start,
