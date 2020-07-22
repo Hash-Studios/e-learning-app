@@ -66,11 +66,11 @@ More information about the releases can be found in the [Release](https://github
 
 First off, thank you for considering contributing to e-learning app. It's people like you that make e-learning app such a great app.
 
-To start your lovely journey with e-learning app, first read the [`contributing guidelines`](https://github.com/Hash-Studios/e-learning app/tree/master/CONTRIBUTING.md) and then fork the repo to start contributing!
+To start your lovely journey with e-learning app, first read the [`contributing guidelines`](https://github.com/Hash-Studios/e-learning-app/tree/master/CONTRIBUTING.md) and then fork the repo to start contributing!
 
 ## License
 
-This app is licensed under the [`BSD 3-Clause License`](https://github.com/Hash-Studios/e-learning app/tree/master/LICENSE.txt).
+This app is licensed under the [`BSD 3-Clause License`](https://github.com/Hash-Studios/e-learning-app/tree/master/LICENSE.txt).
 Any Usage of the source code must follow the below license.
 
 ```
@@ -111,6 +111,6 @@ DISCLAIMER: Google Play and the Google Play logo are trademarks of Google LLC.
 
 ## Contributors
 
-<a href="https://github.com/Hash-Studios/e-learning app/graphs/contributors">
-  <img src="https://contributors-img.web.app/image?repo=Hash-Studios/e-learning app" />
+<a href="https://github.com/Hash-Studios/e-learning-app/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=Hash-Studios/e-learning-app" />
 </a>
