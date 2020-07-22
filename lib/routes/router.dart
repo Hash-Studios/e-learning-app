@@ -1,9 +1,14 @@
 import 'package:elearning/routes/routing_constants.dart';
 import 'package:elearning/ui/pages/home.dart';
+import 'package:elearning/ui/pages/setting.dart';
 import 'package:elearning/ui/pages/undefinedScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:elearning/analytics/analytics_service.dart';
+
+import '../auth/google_auth.dart';
+import 'routing_constants.dart';
+import 'routing_constants.dart';
 
 List<String> navStack = ["Home"];
 Route<dynamic> generateRoute(RouteSettings settings) {
@@ -13,6 +18,11 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       print(navStack);
       analytics.setCurrentScreen(screenName: HomeRoute);
       return CupertinoPageRoute(builder: (context) => Home());
+    // case GoogleSignInRoute:
+    //   return CupertinoPageRoute(builder: (context) => GoogleAuth());
+    case SettingsRoute:
+      return CupertinoPageRoute(builder: (context) => Settings());
+
     // case SearchRoute:
     //   navStack.add("Search");
     //   print(navStack);

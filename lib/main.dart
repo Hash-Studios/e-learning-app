@@ -1,6 +1,8 @@
+import 'package:elearning/ui/pages/help.dart';
 import 'package:elearning/ui/pages/home.dart';
 import 'package:elearning/ui/pages/navmenu/menu_dashboard_layout.dart';
 import 'package:elearning/ui/pages/onboarding1.dart';
+import 'package:elearning/ui/pages/setting.dart';
 import 'package:elearning/ui/pages/undefinedScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
