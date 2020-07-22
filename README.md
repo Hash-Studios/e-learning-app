@@ -5,20 +5,13 @@ E-Learn is a beautiful open-source education app for Android. It is built with D
 
 ## List of Contents
 
-1. [Features](#features)
-2. [Changelog](#changelog)
-3. [Demo](#demo)
-4. [Support](#support)
-5. [Dependencies](#dependencies)
-6. [Usage](#usage)
-7. [Contributing](#contributing)
-8. [License](#license)
-9. [Contributors](#contributors)
-10. [To-Do](#to-do)
-
-## Features
-
-## Changelog
+1. [Demo](#demo)
+2. [Support](#support)
+3. [Dependencies](#dependencies)
+4. [Usage](#usage)
+5. [Contributing](#contributing)
+6. [License](#license)
+7. [Contributors](#contributors)
 
 ## Demo
 
@@ -54,44 +47,30 @@ If you like what we do, and would want to help us continue doing it, consider sp
 The following packages are needed for the development of this application.
 
 - `provider: ^4.1.3` for caching data, and state management
-- `optimized_cached_image: ^0.1.13` for caching wallpapers
-- `palette_generator: ^0.2.2` for generating wallpaper colors
-- `flutter_colorpicker: ^0.3.4` for color picker dialog
 - `fluttertoast: ^4.0.1` for toast notifications
-- `gallery_saver: ^2.0.1` for saving wallpapers to gallery
-- `shared_preferences: ^0.5.7` for storing settings like theme
-- `share: ^0.6.4` for sharing the wallpaper links
-- `url_launcher: ^5.4.5` for launching urls
-- `cloud_firestore: ^0.13.5` for storing liked images and other user based data
-- `firebase_core: ^0.4.4+3` for firebase support
-- `firebase_auth: ^0.16.0` for user authentication
-- `firebase_dynamic_links: ^0.5.1` for wallpaper link generation and handling
+- `shared_preferences: ^0.5.7` for storing settings like app state
+- `firebase_core: ^0.4.4+3` for firebase core
+- `firebase_auth: ^0.16.0` for user auth
 - `google_sign_in: ^4.4.4` for Google sign in support
-- `permission_handler: ^5.0.1+1` for handling required device permissions
 - `flare_splash_screen: ^3.0.1` for the animated splash screen
 - `flutter_svg: 0.17.4` for svg assets
-- `sliding_up_panel: ^1.0.2` for sliding info panel
 - `firebase_analytics: ^5.0.16` for analytics
-- `firebase_messaging: ^6.0.16` for notifications
-- `in_app_purchase: ^0.3.4+1` for in-app purchases
 
-More details about these can be found in the [`pubspec.yaml`](https://github.com/Hash-Studios/Prism/tree/master/pubspec.yaml) file.
+More details about these can be found in the [`pubspec.yaml`](https://github.com/Hash-Studios/e-learning-app/tree/master/pubspec.yaml) file.
 
 ## Usage
 
-The application files for Android devices can be found on [Google Play Store](https://play.google.com/store/apps/details?id=com.hash.prism).
-
-More information about the releases can be found in the [Release](https://github.com/Hash-Studios/Prism/releases) tab.
+More information about the releases can be found in the [Release](https://github.com/Hash-Studios/e-learning-app/releases) tab.
 
 ## Contributing
 
-First off, thank you for considering contributing to Prism. It's people like you that make Prism such a great app.
+First off, thank you for considering contributing to e-learning app. It's people like you that make e-learning app such a great app.
 
-To start your lovely journey with Prism, first read the [`contributing guidelines`](https://github.com/Hash-Studios/Prism/tree/master/CONTRIBUTING.md) and then fork the repo to start contributing!
+To start your lovely journey with e-learning app, first read the [`contributing guidelines`](https://github.com/Hash-Studios/e-learning app/tree/master/CONTRIBUTING.md) and then fork the repo to start contributing!
 
 ## License
 
-This app is licensed under the [`BSD 3-Clause License`](https://github.com/Hash-Studios/Prism/tree/master/LICENSE.txt).
+This app is licensed under the [`BSD 3-Clause License`](https://github.com/Hash-Studios/e-learning app/tree/master/LICENSE.txt).
 Any Usage of the source code must follow the below license.
 
 ```
@@ -132,22 +111,6 @@ DISCLAIMER: Google Play and the Google Play logo are trademarks of Google LLC.
 
 ## Contributors
 
-<a href="https://github.com/Hash-Studios/Prism/graphs/contributors">
-  <img src="https://contributors-img.web.app/image?repo=Hash-Studios/Prism" />
+<a href="https://github.com/Hash-Studios/e-learning app/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=Hash-Studios/e-learning app" />
 </a>
-
-## 
-![E-Learn UI Mockup](demo/Prism_Mockup2.png)
-
-## To Do
-
-- [x] notifications (timed, random)
-- [ ] code refactoring
-- [ ] community walls + collections (add users to upload there own walls in the app)
-- [ ] make tags clickable
-- [ ] search tags working
-- [x] add analytics
-- [ ] centrecrop java for search
-- [x] see more in search
-- [x] favWallScreen downlod button issue
-- [x] change circular progress indicator with fullscreen loader due to gesture detector
