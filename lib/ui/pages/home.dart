@@ -1,7 +1,5 @@
 import 'dart:ui';
-import 'package:elearning/ui/widgets/card.dart';
 import 'package:elearning/ui/widgets/overlay.dart';
-import 'package:intl/intl.dart';
 import 'package:elearning/theme/box_icons_icons.dart';
 import 'package:elearning/theme/config.dart';
 import 'package:elearning/ui/pages/leaderboard.dart';

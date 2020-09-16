@@ -1,7 +1,4 @@
-import 'package:elearning/ui/widgets/card.dart';
 import 'package:flutter/material.dart';
-
-import 'menu_dashboard_layout.dart';
 
 class Dashboard extends StatelessWidget {
   final bool isCollapsed;

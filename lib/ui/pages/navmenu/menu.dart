@@ -1,5 +1,4 @@
 import 'package:elearning/theme/box_icons_icons.dart';
-import 'package:elearning/ui/widgets/card.dart';
 import 'package:flutter/material.dart';
 
 class Menu extends StatelessWidget {

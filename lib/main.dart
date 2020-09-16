@@ -1,5 +1,3 @@
-import 'package:elearning/ui/pages/home.dart';
-import 'package:elearning/ui/pages/navmenu/menu_dashboard_layout.dart';
 import 'package:elearning/ui/pages/onboarding1.dart';
 import 'package:elearning/ui/pages/undefinedScreen.dart';
 import 'package:flutter/cupertino.dart';
@@ -7,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:elearning/global/globals.dart' as globals;
 import 'package:elearning/routes/router.dart' as router;
-import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 SharedPreferences prefs;

@@ -1,13 +1,7 @@
 import 'package:elearning/theme/config.dart' as config;
 import 'package:elearning/ui/pages/home.dart';
-import 'package:elearning/ui/pages/undefinedScreen.dart';
-import 'package:elearning/ui/pages/video.dart';
 import 'package:flutter/material.dart';
-// import 'package:menu_and_dashboard/bloc/navigation_bloc/navigation_bloc.dart';
 import 'package:elearning/ui/pages/navmenu/dashboard.dart';
-// import 'package:menu_and_dashboard/ui/pages/messages_page.dart';
-// import 'package:menu_and_dashboard/ui/pages/my_cards_page.dart';
-// import 'package:menu_and_dashboard/ui/pages/utility_bills_page.dart';
 
 import 'menu.dart';
 
