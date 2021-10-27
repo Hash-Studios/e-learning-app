@@ -7,7 +7,7 @@ import 'package:flutter/material.dart' as material;
 
 class StatsCard extends material.StatelessWidget {
   const StatsCard({
-    material.Key key,
+    material.Key? key,
   }) : super(key: key);
 
   @override

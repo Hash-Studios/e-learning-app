@@ -15,12 +15,12 @@ class MenuDashboardLayout extends StatefulWidget {
 class _MenuDashboardLayoutState extends State<MenuDashboardLayout>
     with SingleTickerProviderStateMixin {
   bool isCollapsed = true;
-  double screenWidth, screenHeight;
+  double? screenWidth, screenHeight;
   final Duration duration = const Duration(milliseconds: 200);
-  AnimationController _controller;
-  Animation<double> _scaleAnimation;
-  Animation<double> _menuScaleAnimation;
-  Animation<Offset> _slideAnimation;
+  late AnimationController _controller;
+  Animation<double>? _scaleAnimation;
+  Animation<double>? _menuScaleAnimation;
+  Animation<Offset>? _slideAnimation;
 
   @override
   void initState() {

@@ -6,10 +6,10 @@ import 'package:flutter/cupertino.dart';
 
 class VideosPage extends StatelessWidget {
   VideosPage({
-    Key key,
-    @required this.onMenuTap,
+    Key? key,
+    required this.onMenuTap,
   }) : super(key: key);
-  final Function onMenuTap;
+  final Function? onMenuTap;
 
   TextEditingController controller = TextEditingController();
   @override

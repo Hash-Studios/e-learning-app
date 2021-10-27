@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class App {
-  BuildContext _context;
-  double _height;
-  double _width;
-  double _heightPadding;
-  double _widthPadding;
+  late BuildContext _context;
+  late double _height;
+  late double _width;
+  late double _heightPadding;
+  late double _widthPadding;
 
   App(_context) {
     this._context = _context;

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:elearning/analytics/analytics_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -9,9 +11,9 @@ class GoogleAuth {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn googleSignIn = GoogleSignIn();
 
-  String name;
-  String email;
-  String imageUrl;
+  String? name;
+  String? email;
+  String? imageUrl;
   String errorMsg = "";
   bool isLoggedIn = false;
   bool isLoading = false;
@@ -19,7 +21,8 @@ class GoogleAuth {
   Future<String> signInWithGoogle() async {
     // try {
     isLoading = true;
-    final GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
+    final GoogleSignInAccount googleSignInAccount =
+        await (googleSignIn.signIn() as FutureOr<GoogleSignInAccount>);
     final GoogleSignInAuthentication googleSignInAuthentication =
         await googleSignInAccount.authentication;
 
@@ -30,12 +33,12 @@ class GoogleAuth {
 
     final UserCredential authResult =
         await _auth.signInWithCredential(credential);
-    final User user = authResult.user;
-    assert(user.email != null);
-    assert(user.displayName != null);
-    assert(user.photoURL != null);
-    name = user.displayName;
-    email = user.email;
+    final User? user = authResult.user!;
+    assert(user?.email != null);
+    assert(user?.displayName != null);
+    assert(user?.photoURL != null);
+    name = user?.displayName;
+    email = user?.email;
     if (user != null) {
       final QuerySnapshot result = await FirebaseFirestore.instance
           .collection('users')
@@ -51,8 +54,8 @@ class GoogleAuth {
           'premium': false,
         });
         await main.prefs.setString('id', user.uid);
-        await main.prefs.setString('name', user.displayName);
-        await main.prefs.setString('email', user.email);
+        await main.prefs.setString('name', user.displayName!);
+        await main.prefs.setString('email', user.email!);
         await main.prefs.setString('logged', "true");
         await main.prefs.setBool('premium', false);
       } else {
@@ -65,14 +68,16 @@ class GoogleAuth {
       isLoading = false;
     }
     SharedPreferences.getInstance().then((value) {
-      value.setString('googlename', user.displayName);
-      value.setString('googleemail', user.email);
-      value.setString('googleimage', user.photoURL);
+      value.setString('googlename', user?.displayName ?? "");
+      value.setString('googleemail', user?.email ?? "");
+      value.setString('googleimage', user?.photoURL ?? "");
     });
-    assert(!user.isAnonymous);
-    assert(await user.getIdToken() != null);
-    final User currentUser = _auth.currentUser;
-    assert(user.uid == currentUser.uid);
+    if (user != null) {
+      assert(!user.isAnonymous);
+      assert(await user.getIdToken() != null);
+    }
+    final User currentUser = _auth.currentUser!;
+    assert(user?.uid == currentUser.uid);
     analytics.logLogin();
     return 'signInWithGoogle succeeded: $user';
   }
@@ -93,9 +98,6 @@ class GoogleAuth {
   }
 
   Future<bool> isSignedIn() async {
-    await googleSignIn.isSignedIn().then((value) {
-      print(value);
-      return value;
-    });
+    return await googleSignIn.isSignedIn();
   }
 }

@@ -9,7 +9,7 @@ class Onboarding extends StatefulWidget {
 
 class _OnboardingState extends State<Onboarding> {
   final PageController controller = PageController(initialPage: 0);
-  int pageNumber;
+  int? pageNumber;
   List widgets = [];
   @override
   void initState() {

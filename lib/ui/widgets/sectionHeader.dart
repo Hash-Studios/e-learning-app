@@ -4,9 +4,9 @@ import 'package:flutter/material.dart' as material;
 
 class SectionHeader extends StatelessWidget {
   const SectionHeader({
-    Key key,
-    @required this.text,
-    @required this.onPressed,
+    Key? key,
+    required this.text,
+    required this.onPressed,
   }) : super(key: key);
   final String text;
   final Function onPressed;
@@ -33,7 +33,7 @@ class SectionHeader extends StatelessWidget {
         CupertinoButton(
           child:
               Icon(BoxIcons.bx_chevron_right, color: material.Colors.lightBlue),
-          onPressed: onPressed,
+          onPressed: onPressed as void Function()?,
         )
       ],
     );
