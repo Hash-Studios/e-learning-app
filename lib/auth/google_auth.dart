@@ -23,26 +23,27 @@ class GoogleAuth {
     final GoogleSignInAuthentication googleSignInAuthentication =
         await googleSignInAccount.authentication;
 
-    final AuthCredential credential = GoogleAuthProvider.getCredential(
+    final AuthCredential credential = GoogleAuthProvider.credential(
       accessToken: googleSignInAuthentication.accessToken,
       idToken: googleSignInAuthentication.idToken,
     );
 
-    final AuthResult authResult = await _auth.signInWithCredential(credential);
-    final FirebaseUser user = authResult.user;
+    final UserCredential authResult =
+        await _auth.signInWithCredential(credential);
+    final User user = authResult.user;
     assert(user.email != null);
     assert(user.displayName != null);
-    assert(user.photoUrl != null);
+    assert(user.photoURL != null);
     name = user.displayName;
     email = user.email;
     if (user != null) {
-      final QuerySnapshot result = await Firestore.instance
+      final QuerySnapshot result = await FirebaseFirestore.instance
           .collection('users')
           .where('id', isEqualTo: user.uid)
-          .getDocuments();
-      final List<DocumentSnapshot> documents = result.documents;
+          .get();
+      final List<DocumentSnapshot> documents = result.docs;
       if (documents.length == 0) {
-        Firestore.instance.collection('users').document(user.uid).setData({
+        FirebaseFirestore.instance.collection('users').doc(user.uid).set({
           'name': user.displayName,
           'email': user.email,
           'id': user.uid,
@@ -66,11 +67,11 @@ class GoogleAuth {
     SharedPreferences.getInstance().then((value) {
       value.setString('googlename', user.displayName);
       value.setString('googleemail', user.email);
-      value.setString('googleimage', user.photoUrl);
+      value.setString('googleimage', user.photoURL);
     });
     assert(!user.isAnonymous);
     assert(await user.getIdToken() != null);
-    final FirebaseUser currentUser = await _auth.currentUser();
+    final User currentUser = _auth.currentUser;
     assert(user.uid == currentUser.uid);
     analytics.logLogin();
     return 'signInWithGoogle succeeded: $user';
