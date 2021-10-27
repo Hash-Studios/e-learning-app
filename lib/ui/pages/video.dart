@@ -36,10 +36,18 @@ class _VideoPageState extends State<VideoPage> {
                     child: Column(
                   children: <Widget>[
                     Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height * 0.5,
-                        child: Image.asset('assets/images/video.jpg',
-                            fit: BoxFit.cover)),
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height * 0.5,
+                      child: Image(
+                        image: ResizeImage(
+                          AssetImage('assets/images/video.jpg'),
+                          height: MediaQuery.of(context).size.width ~/ 2,
+                          width:
+                              (MediaQuery.of(context).size.height * 0.5) ~/ 2,
+                        ),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                     Container(
                       width: MediaQuery.of(context).size.width,
                       child: Column(
@@ -142,6 +150,7 @@ class _VideoPageState extends State<VideoPage> {
                           ],
                           borderRadius: BorderRadius.circular(500)),
                       child: material.FloatingActionButton(
+                          heroTag: "video",
                           elevation: 0,
                           highlightElevation: 0,
                           backgroundColor: material.Colors.transparent,
