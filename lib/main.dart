@@ -1,5 +1,6 @@
 import 'package:elearning/ui/pages/onboarding1.dart';
 import 'package:elearning/ui/pages/undefinedScreen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -10,6 +11,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 SharedPreferences prefs;
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp();
   SharedPreferences.getInstance().then((prefs) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
         .then((value) => runApp(
