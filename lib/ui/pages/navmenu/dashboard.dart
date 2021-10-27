@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 class Dashboard extends StatelessWidget {
-  final bool isCollapsed;
-  final double screenWidth;
-  final Duration duration;
-  final Animation<double> scaleAnimation;
-  final Function onMenuTap;
-  final Widget child;
+  final bool? isCollapsed;
+  final double? screenWidth;
+  final Duration? duration;
+  final Animation<double>? scaleAnimation;
+  final Function? onMenuTap;
+  final Widget? child;
 
   const Dashboard(
-      {Key key,
+      {Key? key,
       this.isCollapsed,
       this.screenWidth,
       this.duration,
@@ -21,13 +21,13 @@ class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedPositioned(
-      duration: duration,
+      duration: duration!,
       top: 0,
       bottom: 0,
-      left: isCollapsed ? 0 : 0.6 * screenWidth,
-      right: isCollapsed ? 0 : -0.6 * screenWidth,
+      left: isCollapsed! ? 0 : 0.6 * screenWidth!,
+      right: isCollapsed! ? 0 : -0.6 * screenWidth!,
       child: ScaleTransition(
-        scale: scaleAnimation,
+        scale: scaleAnimation!,
         child: Container(
           decoration: BoxDecoration(
             boxShadow: [
@@ -39,11 +39,11 @@ class Dashboard extends StatelessWidget {
             ],
           ),
           child: ClipRRect(
-            borderRadius: isCollapsed
+            borderRadius: isCollapsed!
                 ? BorderRadius.zero
                 : BorderRadius.all(Radius.circular(20)),
             child: Material(
-              animationDuration: duration,
+              animationDuration: duration!,
               child: child,
             ),
           ),

@@ -8,10 +8,10 @@ import 'package:elearning/global/globals.dart' as globals;
 import 'package:elearning/routes/router.dart' as router;
 import 'package:shared_preferences/shared_preferences.dart';
 
-SharedPreferences prefs;
-void main() {
+late SharedPreferences prefs;
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp();
+  await Firebase.initializeApp();
   SharedPreferences.getInstance().then((prefs) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
         .then((value) => runApp(
@@ -59,10 +59,10 @@ class _MyAppState extends State<MyApp> {
 class RestartWidget extends StatefulWidget {
   RestartWidget({this.child});
 
-  final Widget child;
+  final Widget? child;
 
   static void restartApp(BuildContext context) {
-    context.findAncestorStateOfType<_RestartWidgetState>().restartApp();
+    context.findAncestorStateOfType<_RestartWidgetState>()!.restartApp();
   }
 
   @override
@@ -82,7 +82,7 @@ class _RestartWidgetState extends State<RestartWidget> {
   Widget build(BuildContext context) {
     return KeyedSubtree(
       key: key,
-      child: widget.child,
+      child: widget.child!,
     );
   }
 }

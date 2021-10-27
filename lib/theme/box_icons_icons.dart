@@ -19,7 +19,7 @@ class BoxIcons {
   BoxIcons._();
 
   static const _kFontFam = 'BoxIcons';
-  static const _kFontPkg = null;
+  static const dynamic _kFontPkg = null;
 
   static const IconData bxl_500px = IconData(0xe900, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData bxl_adobe = IconData(0xe901, fontFamily: _kFontFam, fontPackage: _kFontPkg);

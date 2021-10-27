@@ -6,20 +6,20 @@ import 'package:flutter/material.dart' as material;
 class CardWidget extends StatelessWidget {
   final bool gradient;
   final bool button;
-  final Color color;
-  final double width;
-  final double height;
+  final Color? color;
+  final double? width;
+  final double? height;
   final Widget child;
-  final int duration;
-  final Border border;
+  final int? duration;
+  final Border? border;
   final func;
   CardWidget({
-    @required this.gradient,
-    @required this.button,
+    required this.gradient,
+    required this.button,
     this.color,
     this.width,
     this.height,
-    @required this.child,
+    required this.child,
     this.duration,
     this.func,
     this.border,

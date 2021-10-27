@@ -6,10 +6,10 @@ import 'package:flutter/services.dart';
 
 class TopBar extends StatefulWidget {
   const TopBar({
-    Key key,
-    @required this.controller,
-    @required this.expanded,
-    @required this.onMenuTap,
+    Key? key,
+    required this.controller,
+    required this.expanded,
+    required this.onMenuTap,
   }) : super(key: key);
 
   final TextEditingController controller;

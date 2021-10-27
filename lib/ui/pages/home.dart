@@ -20,8 +20,8 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int tabNo = 0;
-  bool overlayVisible;
-  CupertinoTabController controller;
+  late bool overlayVisible;
+  CupertinoTabController? controller;
   @override
   void initState() {
     overlayVisible = false;
@@ -132,8 +132,8 @@ class _HomeState extends State<Home> {
 class HomePage extends StatelessWidget {
   final onMenuTap;
   HomePage({
-    Key key,
-    @required this.onMenuTap,
+    Key? key,
+    required this.onMenuTap,
   }) : super(key: key);
 
   TextEditingController controller = TextEditingController();

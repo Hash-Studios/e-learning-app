@@ -8,10 +8,10 @@ import 'package:flutter/material.dart' as material;
 
 class LeaderboardPage extends StatefulWidget {
   LeaderboardPage({
-    Key key,
-    @required this.onMenuTap,
+    Key? key,
+    required this.onMenuTap,
   }) : super(key: key);
-  final Function onMenuTap;
+  final Function? onMenuTap;
 
   @override
   _LeaderboardPageState createState() => _LeaderboardPageState();
@@ -19,7 +19,7 @@ class LeaderboardPage extends StatefulWidget {
 
 class _LeaderboardPageState extends State<LeaderboardPage> {
   TextEditingController controller = TextEditingController();
-  bool local;
+  late bool local;
   final List names = [
     'Sarvesh Mehta',
     'Karanjeet Gill',

@@ -7,7 +7,7 @@ import 'package:intl/intl.dart';
 
 class OverlayWidget extends StatelessWidget {
   OverlayWidget({
-    Key key,
+    Key? key,
   }) : super(key: key);
   String getStrToday() {
     var today = DateFormat().add_yMMMMd().format(DateTime.now());
