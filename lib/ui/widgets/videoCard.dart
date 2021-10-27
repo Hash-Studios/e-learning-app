@@ -25,7 +25,7 @@ class VideoCard extends material.StatelessWidget {
           children: <material.Widget>[
             material.Container(
               width: long ? 360 : 180,
-              height: 90,
+              height: 87,
               decoration: material.BoxDecoration(
                 image: material.DecorationImage(
                     image: material.AssetImage('assets/images/video.jpg'),
