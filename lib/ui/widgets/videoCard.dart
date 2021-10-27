@@ -96,7 +96,7 @@ class VideoCard extends material.StatelessWidget {
                   ),
                 ),
                 onTap: () {
-                  material.Navigator.push(
+                  Navigator.push(
                     context,
                     CupertinoPageRoute(
                       builder: (context) => VideoPage(),
