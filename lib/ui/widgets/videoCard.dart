@@ -26,7 +26,7 @@ class VideoCard extends material.StatelessWidget {
             material.Container(
               width: long ? 360 : 180,
               height: 87,
-              decoration: material.BoxDecoration(
+              decoration: const material.BoxDecoration(
                 image: material.DecorationImage(
                     image: material.AssetImage('assets/images/video.jpg'),
                     fit: material.BoxFit.cover),
@@ -35,10 +35,10 @@ class VideoCard extends material.StatelessWidget {
                   topRight: material.Radius.circular(10),
                 ),
               ),
-              child: material.Text(""),
+              child: const material.Text(""),
             ),
-            material.Padding(
-              padding: const material.EdgeInsets.all(8.0),
+            const material.Padding(
+              padding: material.EdgeInsets.all(8.0),
               child: material.Text(
                 "Stars - What are they made up of ?",
                 overflow: material.TextOverflow.ellipsis,
@@ -49,8 +49,8 @@ class VideoCard extends material.StatelessWidget {
                     fontSize: 16),
               ),
             ),
-            material.Padding(
-              padding: const material.EdgeInsets.symmetric(horizontal: 8.0),
+            const material.Padding(
+              padding: material.EdgeInsets.symmetric(horizontal: 8.0),
               child: material.Row(
                 children: <material.Widget>[
                   material.Icon(BoxIcons.bx_bar_chart_alt_2, size: 16),
@@ -73,14 +73,14 @@ class VideoCard extends material.StatelessWidget {
                 ],
               ),
             ),
-            material.Spacer(),
+            const material.Spacer(),
             material.Padding(
               padding: const material.EdgeInsets.only(top: 6.0),
               child: material.GestureDetector(
                 child: material.Container(
-                  padding: material.EdgeInsets.fromLTRB(0, 14, 0, 14),
+                  padding: const material.EdgeInsets.fromLTRB(0, 14, 0, 14),
                   decoration: material.BoxDecoration(gradient: Colors().waves),
-                  child: material.Row(
+                  child: const material.Row(
                     mainAxisAlignment: material.MainAxisAlignment.spaceEvenly,
                     children: <material.Widget>[
                       material.Icon(BoxIcons.bx_play_circle,
@@ -99,7 +99,7 @@ class VideoCard extends material.StatelessWidget {
                   Navigator.push(
                     context,
                     CupertinoPageRoute(
-                      builder: (context) => VideoPage(),
+                      builder: (context) => const VideoPage(),
                     ),
                   );
                 },

@@ -36,84 +36,84 @@ class App {
 }
 
 class Colors {
-  Color _mainColor = Color(0xFFFFFFFF);
-  Color _secondColor = Color(0xFFF5F6FC);
-  Color _accentColor = Color(0xFF03A9F4);
+  final Color _mainColor = const Color(0xFFFFFFFF);
+  final Color _secondColor = const Color(0xFFF5F6FC);
+  final Color _accentColor = const Color(0xFF03A9F4);
   // Color _mainDarkColor = Color(0xFF181818);
   // Color _secondDarkColor = Color(0xFF2F2F2F);
   // Color _accentDarkColor = Color(0xFFF0F0F0);
 
-  LinearGradient waves = LinearGradient(
+  LinearGradient waves = const LinearGradient(
     colors: [Color(0xFF0396FF), Color(0xFFABDCFF)],
     begin: Alignment.bottomRight,
     end: Alignment.topLeft,
   );
 
-  LinearGradient deepSpace = LinearGradient(
+  LinearGradient deepSpace = const LinearGradient(
     colors: [Color(0xFF4CA1AF), Color(0xFF2C3E50)],
     begin: Alignment.topRight,
     end: Alignment.bottomLeft,
   );
-  LinearGradient peachy = LinearGradient(
+  LinearGradient peachy = const LinearGradient(
     colors: [Color(0xFFFFB382), Color(0xFFF07590)],
     begin: Alignment.topRight,
     end: Alignment.bottomLeft,
   );
-  LinearGradient nebula = LinearGradient(
+  LinearGradient nebula = const LinearGradient(
     colors: [Color(0xFFA1A3FF), Color(0xFF6D63EF)],
     begin: Alignment.topRight,
     end: Alignment.bottomLeft,
   );
-  LinearGradient mildSea = LinearGradient(
+  LinearGradient mildSea = const LinearGradient(
     colors: [Color(0xFF96EFA6), Color(0xFF26A6B5)],
     begin: Alignment.topRight,
     end: Alignment.bottomLeft,
   );
-  LinearGradient mildSeaRev = LinearGradient(
+  LinearGradient mildSeaRev = const LinearGradient(
     colors: [Color(0xFF26A6B5), Color(0xFF96EFA6)],
     begin: Alignment.topRight,
     end: Alignment.bottomLeft,
   );
-  LinearGradient purplin = LinearGradient(
+  LinearGradient purplin = const LinearGradient(
     colors: [Color(0xFFA044FF), Color(0xFF6A3093)],
     begin: Alignment.topRight,
     end: Alignment.bottomLeft,
   );
 
-  LinearGradient easyMed = LinearGradient(
+  LinearGradient easyMed = const LinearGradient(
     colors: [Color(0xFF45B649), Color(0xFFDCE35B)],
     begin: Alignment.topRight,
     end: Alignment.bottomLeft,
   );
 
-  LinearGradient disco = LinearGradient(
+  LinearGradient disco = const LinearGradient(
     colors: [Color(0xFFB06AB3), Color(0xFF4568DC)],
     begin: Alignment.topRight,
     end: Alignment.bottomLeft,
   );
 
-  LinearGradient aqua = LinearGradient(
+  LinearGradient aqua = const LinearGradient(
     colors: [Color(0xFF5B86E5), Color(0xFF36D1DC)],
     begin: Alignment.topRight,
     end: Alignment.bottomLeft,
   );
 
-  LinearGradient alive = LinearGradient(
+  LinearGradient alive = const LinearGradient(
     colors: [Color(0xFFBD3F32), Color(0xFFCB356B)],
     begin: Alignment.topRight,
     end: Alignment.bottomLeft,
   );
 
   Color mainColor(double opacity) {
-    return this._mainColor.withOpacity(opacity);
+    return _mainColor.withOpacity(opacity);
   }
 
   Color secondColor(double opacity) {
-    return this._secondColor.withOpacity(opacity);
+    return _secondColor.withOpacity(opacity);
   }
 
   Color accentColor(double opacity) {
-    return this._accentColor.withOpacity(opacity);
+    return _accentColor.withOpacity(opacity);
   }
 
   // Color mainDarkColor(double opacity) {

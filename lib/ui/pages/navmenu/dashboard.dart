@@ -29,7 +29,7 @@ class Dashboard extends StatelessWidget {
       child: ScaleTransition(
         scale: scaleAnimation!,
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             boxShadow: [
               BoxShadow(
                 blurRadius: 20,
@@ -41,7 +41,7 @@ class Dashboard extends StatelessWidget {
           child: ClipRRect(
             borderRadius: isCollapsed!
                 ? BorderRadius.zero
-                : BorderRadius.all(Radius.circular(20)),
+                : const BorderRadius.all(Radius.circular(20)),
             child: Material(
               animationDuration: duration!,
               child: child,

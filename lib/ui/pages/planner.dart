@@ -35,14 +35,14 @@ class PlannerPage extends StatelessWidget {
                   ),
                 ),
                 SliverToBoxAdapter(
-                  child: Container(
+                  child: SizedBox(
                     width: MediaQuery.of(context).size.width,
                     height: 240,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: 2,
                       itemBuilder: (context, index) {
-                        return VideoCard(long: true);
+                        return const VideoCard(long: true);
                       },
                     ),
                   ),
@@ -54,7 +54,7 @@ class PlannerPage extends StatelessWidget {
                   ),
                 ),
                 SliverToBoxAdapter(
-                  child: Container(
+                  child: SizedBox(
                     width: MediaQuery.of(context).size.width,
                     height: 450,
                     child: CardWidget(
@@ -69,7 +69,7 @@ class PlannerPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SliverToBoxAdapter(
+                const SliverToBoxAdapter(
                   child: SizedBox(
                     height: 70,
                     child: Text(""),
