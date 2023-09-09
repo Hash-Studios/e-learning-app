@@ -2,7 +2,6 @@ import 'package:elearning/ui/pages/onboarding1.dart';
 import 'package:elearning/ui/pages/undefinedScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:elearning/global/globals.dart' as globals;
 import 'package:elearning/routes/router.dart' as router;
@@ -15,7 +14,7 @@ void main() async {
   SharedPreferences.getInstance().then((prefs) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
         .then((value) => runApp(
-              RestartWidget(
+              const RestartWidget(
                 child: MyApp(),
               ),
             ));
@@ -23,11 +22,13 @@ void main() async {
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
-  _MyAppState createState() => _MyAppState();
+  MyAppState createState() => MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class MyAppState extends State<MyApp> {
   void getLoginStatus() async {
     prefs = await SharedPreferences.getInstance();
     globals.gAuth.googleSignIn.isSignedIn().then((value) {
@@ -57,19 +58,19 @@ class _MyAppState extends State<MyApp> {
 }
 
 class RestartWidget extends StatefulWidget {
-  RestartWidget({this.child});
+  const RestartWidget({super.key, this.child});
 
   final Widget? child;
 
   static void restartApp(BuildContext context) {
-    context.findAncestorStateOfType<_RestartWidgetState>()!.restartApp();
+    context.findAncestorStateOfType<RestartWidgetState>()!.restartApp();
   }
 
   @override
-  _RestartWidgetState createState() => _RestartWidgetState();
+  RestartWidgetState createState() => RestartWidgetState();
 }
 
-class _RestartWidgetState extends State<RestartWidget> {
+class RestartWidgetState extends State<RestartWidget> {
   Key key = UniqueKey();
 
   void restartApp() {

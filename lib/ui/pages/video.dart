@@ -5,11 +5,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' as material;
 
 class VideoPage extends StatefulWidget {
+  const VideoPage({super.key});
+
   @override
-  _VideoPageState createState() => _VideoPageState();
+  VideoPageState createState() => VideoPageState();
 }
 
-class _VideoPageState extends State<VideoPage> {
+class VideoPageState extends State<VideoPage> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
@@ -18,29 +20,28 @@ class _VideoPageState extends State<VideoPage> {
         automaticallyImplyLeading: true,
         previousPageTitle: "Back",
         trailing: CupertinoButton(
-          padding: EdgeInsets.all(0),
-          child: Icon(BoxIcons.bx_share_alt),
+          padding: const EdgeInsets.all(0),
+          child: const Icon(BoxIcons.bx_share_alt),
           onPressed: () {},
         ),
       ),
       child: Stack(
         alignment: Alignment.center,
         children: <Widget>[
-          Container(
+          SizedBox(
             height: MediaQuery.of(context).size.height,
             child: SingleChildScrollView(
                 child: Stack(
               alignment: Alignment.center,
               children: <Widget>[
-                Container(
-                    child: Column(
+                Column(
                   children: <Widget>[
-                    Container(
+                    SizedBox(
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height * 0.5,
                       child: Image(
                         image: ResizeImage(
-                          AssetImage('assets/images/video.jpg'),
+                          const AssetImage('assets/images/video.jpg'),
                           height: MediaQuery.of(context).size.width ~/ 2,
                           width:
                               (MediaQuery.of(context).size.height * 0.5) ~/ 2,
@@ -48,7 +49,7 @@ class _VideoPageState extends State<VideoPage> {
                         fit: BoxFit.cover,
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: MediaQuery.of(context).size.width,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -63,11 +64,11 @@ class _VideoPageState extends State<VideoPage> {
                                   height: 30,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(500),
-                                      color: Color(0xFF343434)),
-                                  child: Text(""),
+                                      color: const Color(0xFF343434)),
+                                  child: const Text(""),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                const Padding(
+                                  padding: EdgeInsets.all(8.0),
                                   child: Text(
                                     "Revision - Kinematics",
                                     style: TextStyle(
@@ -79,14 +80,13 @@ class _VideoPageState extends State<VideoPage> {
                               ],
                             ),
                           ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 16.0),
+                          const Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 16.0),
                             child: Row(
                               children: <Widget>[
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 8.0),
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 8.0),
                                   child: Icon(BoxIcons.bx_bar_chart_alt_2,
                                       size: 20, color: Color(0xFFADADAD)),
                                 ),
@@ -106,8 +106,8 @@ class _VideoPageState extends State<VideoPage> {
                                       fontSize: 14),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 8.0),
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 8.0),
                                   child: Icon(BoxIcons.bx_timer,
                                       size: 20, color: Color(0xFFADADAD)),
                                 ),
@@ -115,9 +115,9 @@ class _VideoPageState extends State<VideoPage> {
                             ),
                           ),
                           Container(
-                              padding: EdgeInsets.all(8),
+                              padding: const EdgeInsets.all(8),
                               width: MediaQuery.of(context).size.width * 0.9,
-                              child: Text(
+                              child: const Text(
                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut odio id urna ornare rhoncus. Fusce egestas tellus vitae elit pellentesque, sit amet gravida metus consectetur. Sed in hendrerit elit. Phasellus ullamcorper vulputate ex quis consequat. Aenean fringilla vulputate egestas. Aenean nec mattis turpis. Aenean a faucibus purus, in pulvinar velit. Nulla efficitur erat commodo.",
                                 style: TextStyle(
                                     color: Color(0xFF343434),
@@ -128,13 +128,13 @@ class _VideoPageState extends State<VideoPage> {
                       ),
                     ),
                   ],
-                )),
+                ),
                 Positioned(
                     right: 30,
                     top: MediaQuery.of(context).size.height * 0.465,
                     child: Container(
                       decoration: BoxDecoration(
-                          gradient: LinearGradient(
+                          gradient: const LinearGradient(
                             colors: [
                               Color(0xFFABDCFF),
                               Color(0xFF0396FF),
@@ -145,8 +145,8 @@ class _VideoPageState extends State<VideoPage> {
                           boxShadow: [
                             BoxShadow(
                                 blurRadius: 25,
-                                color: Color(0xFF03A9F4).withOpacity(0.4),
-                                offset: Offset(0, 4))
+                                color: const Color(0xFF03A9F4).withOpacity(0.4),
+                                offset: const Offset(0, 4))
                           ],
                           borderRadius: BorderRadius.circular(500)),
                       child: material.FloatingActionButton(
@@ -154,7 +154,7 @@ class _VideoPageState extends State<VideoPage> {
                           elevation: 0,
                           highlightElevation: 0,
                           backgroundColor: material.Colors.transparent,
-                          child: Icon(BoxIcons.bx_play, size: 40),
+                          child: const Icon(BoxIcons.bx_play, size: 40),
                           onPressed: () {}),
                     )),
               ],
@@ -168,7 +168,7 @@ class _VideoPageState extends State<VideoPage> {
               gradient: true,
               height: 60,
               width: MediaQuery.of(context).size.width,
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
@@ -179,7 +179,7 @@ class _VideoPageState extends State<VideoPage> {
                         fontSize: 18),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: EdgeInsets.all(8.0),
                     child:
                         Icon(BoxIcons.bx_pencil, color: material.Colors.white),
                   ),

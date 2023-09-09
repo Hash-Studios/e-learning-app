@@ -25,15 +25,15 @@ class StatsCard extends material.StatelessWidget {
               padding: const material.EdgeInsets.only(bottom: 6.0),
               child: material.GestureDetector(
                 child: material.Container(
-                  padding: material.EdgeInsets.fromLTRB(0, 14, 0, 14),
+                  padding: const material.EdgeInsets.fromLTRB(0, 14, 0, 14),
                   decoration: material.BoxDecoration(gradient: Colors().waves),
                   child: material.Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: material.Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
+                        const Padding(
+                          padding: EdgeInsets.all(8.0),
                           child: Text(
                             "3489",
                             style: TextStyle(
@@ -54,14 +54,14 @@ class StatsCard extends material.StatelessWidget {
                   material.Navigator.push(
                     context,
                     CupertinoPageRoute(
-                      builder: (context) => VideoPage(),
+                      builder: (context) => const VideoPage(),
                     ),
                   );
                 },
               ),
             ),
-            material.Padding(
-              padding: const material.EdgeInsets.all(8.0),
+            const material.Padding(
+              padding: material.EdgeInsets.all(8.0),
               child: material.Text(
                 "Statistics",
                 overflow: material.TextOverflow.ellipsis,
@@ -72,8 +72,8 @@ class StatsCard extends material.StatelessWidget {
                     fontSize: 16),
               ),
             ),
-            material.Padding(
-              padding: const material.EdgeInsets.symmetric(horizontal: 8.0),
+            const material.Padding(
+              padding: material.EdgeInsets.symmetric(horizontal: 8.0),
               child: material.Row(
                 children: <material.Widget>[
                   material.Icon(BoxIcons.bx_question_mark, size: 16),
@@ -96,8 +96,8 @@ class StatsCard extends material.StatelessWidget {
                 ],
               ),
             ),
-            material.Padding(
-              padding: const material.EdgeInsets.symmetric(horizontal: 8.0),
+            const material.Padding(
+              padding: material.EdgeInsets.symmetric(horizontal: 8.0),
               child: material.Row(
                 children: <material.Widget>[
                   material.Icon(BoxIcons.bx_pen, size: 16),
@@ -120,7 +120,7 @@ class StatsCard extends material.StatelessWidget {
                 ],
               ),
             ),
-            material.Spacer(),
+            const material.Spacer(),
           ],
         ),
       ),
