@@ -3,11 +3,13 @@ import 'package:elearning/ui/pages/navmenu/menu_dashboard_layout.dart';
 import 'package:flutter/cupertino.dart';
 
 class Onboarding extends StatefulWidget {
+  const Onboarding({super.key});
+
   @override
-  _OnboardingState createState() => _OnboardingState();
+  OnboardingState createState() => OnboardingState();
 }
 
-class _OnboardingState extends State<Onboarding> {
+class OnboardingState extends State<Onboarding> {
   final PageController controller = PageController(initialPage: 0);
   int? pageNumber;
   List widgets = [];
@@ -23,9 +25,9 @@ class _OnboardingState extends State<Onboarding> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Image.asset('assets/images/1.png'),
-          Container(
+          SizedBox(
             width: MediaQuery.of(context).size.width * 0.6,
-            child: Text(
+            child: const Text(
               "Easy access to video lectures, & reading materials.",
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -40,9 +42,9 @@ class _OnboardingState extends State<Onboarding> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Image.asset('assets/images/2.png'),
-          Container(
+          SizedBox(
             width: MediaQuery.of(context).size.width * 0.6,
-            child: Text(
+            child: const Text(
               "Ask questions, earn coins and dominate the global leaderboard.",
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -57,9 +59,9 @@ class _OnboardingState extends State<Onboarding> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Image.asset('assets/images/logo.png'),
-          Container(
+          SizedBox(
             width: MediaQuery.of(context).size.width * 0.6,
-            child: Text(
+            child: const Text(
               "E-Learn",
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -71,9 +73,9 @@ class _OnboardingState extends State<Onboarding> {
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.3,
           ),
-          Container(
+          SizedBox(
             width: MediaQuery.of(context).size.width * 0.6,
-            child: Text(
+            child: const Text(
               "The complete E-learning solution for students of all ages!\n\n\nJoin for FREE now!",
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -86,8 +88,8 @@ class _OnboardingState extends State<Onboarding> {
             height: MediaQuery.of(context).size.height * 0.05,
           ),
           CupertinoButton(
-              color: Color(0xFFFFFFFF),
-              child: Row(
+              color: const Color(0xFFFFFFFF),
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
@@ -105,7 +107,7 @@ class _OnboardingState extends State<Onboarding> {
                 Navigator.pushReplacement(
                     context,
                     CupertinoPageRoute(
-                        builder: (context) => MenuDashboardLayout()));
+                        builder: (context) => const MenuDashboardLayout()));
               })
         ],
       ),
@@ -119,7 +121,7 @@ class _OnboardingState extends State<Onboarding> {
       child: Stack(
         children: <Widget>[
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(colors: [
                 Color(0xFFABDCFF),
                 Color(0xFF0396FF),
@@ -150,12 +152,12 @@ class _OnboardingState extends State<Onboarding> {
                       pageNumber == 1
                           ? BoxIcons.bx_check
                           : BoxIcons.bx_chevron_right,
-                      color: Color(0xFFFFFFFF),
+                      color: const Color(0xFFFFFFFF),
                       size: 30,
                     ),
                     onPressed: () {
                       controller.nextPage(
-                          duration: Duration(milliseconds: 300),
+                          duration: const Duration(milliseconds: 300),
                           curve: Curves.fastOutSlowIn);
                     },
                   ))

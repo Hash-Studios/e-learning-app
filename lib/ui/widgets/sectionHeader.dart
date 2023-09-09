@@ -18,22 +18,22 @@ class SectionHeader extends StatelessWidget {
         Container(
           height: 20,
           width: 4,
-          margin: EdgeInsets.all(8),
+          margin: const EdgeInsets.all(8),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(500),
-              color: Color(0xFF343434)),
+              color: const Color(0xFF343434)),
         ),
         Text(
           text,
-          style: TextStyle().copyWith(
+          style: const TextStyle().copyWith(
             fontSize: 17.0,
           ),
         ),
-        Spacer(),
+        const Spacer(),
         CupertinoButton(
-          child:
-              Icon(BoxIcons.bx_chevron_right, color: material.Colors.lightBlue),
           onPressed: onPressed as void Function()?,
+          child: const Icon(BoxIcons.bx_chevron_right,
+              color: material.Colors.lightBlue),
         )
       ],
     );

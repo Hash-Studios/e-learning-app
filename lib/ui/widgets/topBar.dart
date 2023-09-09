@@ -2,7 +2,6 @@ import 'package:elearning/theme/box_icons_icons.dart';
 import 'package:elearning/ui/widgets/card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' as material;
-import 'package:flutter/services.dart';
 
 class TopBar extends StatefulWidget {
   const TopBar({
@@ -17,10 +16,10 @@ class TopBar extends StatefulWidget {
   final onMenuTap;
 
   @override
-  _TopBarState createState() => _TopBarState();
+  TopBarState createState() => TopBarState();
 }
 
-class _TopBarState extends State<TopBar> {
+class TopBarState extends State<TopBar> {
   int tab = 0;
   @override
   Widget build(BuildContext context) {
@@ -39,8 +38,8 @@ class _TopBarState extends State<TopBar> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15),
                   child: Text(
                     "Hi, Akshay.",
                     style: TextStyle(
@@ -53,10 +52,10 @@ class _TopBarState extends State<TopBar> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: GestureDetector(
-                    child: material.CircleAvatar(
+                    onTap: widget.onMenuTap,
+                    child: const material.CircleAvatar(
                       backgroundImage: AssetImage('assets/images/user.png'),
                     ),
-                    onTap: widget.onMenuTap,
                   ),
                 ),
               ],
@@ -68,27 +67,28 @@ class _TopBarState extends State<TopBar> {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: material.Colors.white,
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                       blurRadius: 25,
                       offset: Offset(0, 10),
                       color: Color(0x1A636363),
                     ),
                   ]),
-              padding: EdgeInsets.all(10),
-              style: TextStyle(
-                  color: Color(0xFF343434),
-                  fontSize: 18,
-                  fontFamily: 'Red Hat Display'),
+              padding: const EdgeInsets.all(10),
+              style: const TextStyle(
+                color: Color(0xFF343434),
+                fontSize: 18,
+                fontFamily: 'Red Hat Display',
+              ),
               enableInteractiveSelection: true,
               controller: widget.controller,
               expands: false,
-              inputFormatters: [
-                BlacklistingTextInputFormatter.singleLineFormatter
-              ],
+              // inputFormatters: [
+              //   BlacklistingTextInputFormatter.singleLineFormatter
+              // ],
               keyboardType: TextInputType.text,
-              suffix: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              suffix: const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
                 child: Icon(
                   BoxIcons.bx_search,
                   color: Color(0xFFADADAD),
@@ -97,14 +97,14 @@ class _TopBarState extends State<TopBar> {
               textInputAction: TextInputAction.search,
               textCapitalization: TextCapitalization.words,
               placeholder: "Search",
-              placeholderStyle: TextStyle(
+              placeholderStyle: const TextStyle(
                   color: Color(0xFFADADAD),
                   fontSize: 18,
                   fontFamily: 'Red Hat Display'),
             ),
           ),
           widget.expanded
-              ? Container(
+              ? SizedBox(
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height * 0.165,
                   child: ListView.builder(
@@ -120,14 +120,15 @@ class _TopBarState extends State<TopBar> {
                           border: tab == index
                               ? Border(
                                   bottom: BorderSide(
-                                      color: tab == 0
-                                          ? Color(0xFF2828FF)
-                                          : tab == 1
-                                              ? Color(0xFFFF2E2E)
-                                              : tab == 2
-                                                  ? Color(0xFFFFD700)
-                                                  : Color(0xFF33FF33),
-                                      width: 5),
+                                    color: tab == 0
+                                        ? const Color(0xFF2828FF)
+                                        : tab == 1
+                                            ? const Color(0xFFFF2E2E)
+                                            : tab == 2
+                                                ? const Color(0xFFFFD700)
+                                                : const Color(0xFF33FF33),
+                                    width: 5,
+                                  ),
                                 )
                               : null,
                           child: Center(
@@ -146,7 +147,9 @@ class _TopBarState extends State<TopBar> {
                                     ? "Maths"
                                     : index == 1
                                         ? "Physics"
-                                        : index == 2 ? "Chemistry" : "Biology")
+                                        : index == 2
+                                            ? "Chemistry"
+                                            : "Biology")
                               ],
                             ),
                           ),

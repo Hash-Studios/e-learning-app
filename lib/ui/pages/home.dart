@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:elearning/ui/widgets/overlay.dart';
 import 'package:elearning/theme/box_icons_icons.dart';
 import 'package:elearning/theme/config.dart';
@@ -13,12 +12,12 @@ import 'package:flutter/material.dart' as material;
 
 class Home extends StatefulWidget {
   final onMenuTap;
-  Home({this.onMenuTap});
+  const Home({super.key, this.onMenuTap});
   @override
-  _HomeState createState() => _HomeState();
+  HomeState createState() => HomeState();
 }
 
-class _HomeState extends State<Home> {
+class HomeState extends State<Home> {
   int tabNo = 0;
   late bool overlayVisible;
   CupertinoTabController? controller;
@@ -44,21 +43,25 @@ class _HomeState extends State<Home> {
               });
             },
             activeColor: material.Colors.lightBlue,
-            inactiveColor: Color(0xFFADADAD),
+            inactiveColor: const Color(0xFFADADAD),
             items: [
               BottomNavigationBarItem(
-                  icon: Icon(BoxIcons.bx_home_circle),
-                  title: tabNo == 0 ? Text("Home") : Container()),
+                icon: const Icon(BoxIcons.bx_home_circle),
+                label: tabNo == 0 ? "Home" : "",
+              ),
               BottomNavigationBarItem(
-                  icon: Icon(BoxIcons.bx_calendar),
-                  title: tabNo == 1 ? Text("Planner") : Container()),
+                icon: const Icon(BoxIcons.bx_calendar),
+                label: tabNo == 1 ? "Planner" : "",
+              ),
               BottomNavigationBarItem(icon: Container()),
               BottomNavigationBarItem(
-                  icon: Icon(BoxIcons.bxs_videos),
-                  title: tabNo == 3 ? Text("Videos") : Container()),
+                icon: const Icon(BoxIcons.bxs_videos),
+                label: tabNo == 3 ? "Videos" : "",
+              ),
               BottomNavigationBarItem(
-                  icon: Icon(BoxIcons.bx_stats),
-                  title: tabNo == 4 ? Text("Leaderboard") : Container()),
+                icon: const Icon(BoxIcons.bx_stats),
+                label: tabNo == 4 ? "Leaderboard" : "",
+              ),
             ],
           ),
           tabBuilder: (context, index) => (index == 0)
@@ -84,7 +87,7 @@ class _HomeState extends State<Home> {
         Positioned(
             bottom: 0,
             child: GestureDetector(
-              child: SizedBox(
+              child: const SizedBox(
                 height: 60,
                 width: 80,
                 child: Text(""),
@@ -96,7 +99,7 @@ class _HomeState extends State<Home> {
             bottom: 20,
             child: Container(
               decoration: BoxDecoration(
-                  gradient: LinearGradient(
+                  gradient: const LinearGradient(
                     colors: [
                       Color(0xFFABDCFF),
                       Color(0xFF0396FF),
@@ -107,8 +110,8 @@ class _HomeState extends State<Home> {
                   boxShadow: [
                     BoxShadow(
                         blurRadius: 25,
-                        color: Color(0xFF03A9F4).withOpacity(0.4),
-                        offset: Offset(0, 4))
+                        color: const Color(0xFF03A9F4).withOpacity(0.4),
+                        offset: const Offset(0, 4))
                   ],
                   borderRadius: BorderRadius.circular(500)),
               child: material.FloatingActionButton(
@@ -116,8 +119,8 @@ class _HomeState extends State<Home> {
                   highlightElevation: 0,
                   backgroundColor: material.Colors.transparent,
                   child: overlayVisible
-                      ? Icon(material.Icons.close)
-                      : Icon(BoxIcons.bx_pencil),
+                      ? const Icon(material.Icons.close)
+                      : const Icon(BoxIcons.bx_pencil),
                   onPressed: () {
                     setState(() {
                       overlayVisible = !overlayVisible;
@@ -157,14 +160,14 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 SliverToBoxAdapter(
-                  child: Container(
+                  child: SizedBox(
                     width: MediaQuery.of(context).size.width,
                     height: 245,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: 4,
                       itemBuilder: (context, index) {
-                        return VideoCard(long: false);
+                        return const VideoCard(long: false);
                       },
                     ),
                   ),
@@ -176,14 +179,14 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 SliverToBoxAdapter(
-                  child: Container(
+                  child: SizedBox(
                     width: MediaQuery.of(context).size.width,
                     height: 245,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: 4,
                       itemBuilder: (context, index) {
-                        return VideoCard(long: false);
+                        return const VideoCard(long: false);
                       },
                     ),
                   ),

@@ -32,14 +32,14 @@ class VideosPage extends StatelessWidget {
                   ),
                 ),
                 SliverToBoxAdapter(
-                  child: Container(
+                  child: SizedBox(
                     width: MediaQuery.of(context).size.width,
                     height: 245,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: 4,
                       itemBuilder: (context, index) {
-                        return VideoCard(long: false);
+                        return const VideoCard(long: false);
                       },
                     ),
                   ),
@@ -51,14 +51,14 @@ class VideosPage extends StatelessWidget {
                   ),
                 ),
                 SliverToBoxAdapter(
-                  child: Container(
+                  child: SizedBox(
                     width: MediaQuery.of(context).size.width,
                     height: 245,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: 4,
                       itemBuilder: (context, index) {
-                        return VideoCard(long: false);
+                        return const VideoCard(long: false);
                       },
                     ),
                   ),
@@ -70,14 +70,14 @@ class VideosPage extends StatelessWidget {
                   ),
                 ),
                 SliverToBoxAdapter(
-                  child: Container(
+                  child: SizedBox(
                     width: MediaQuery.of(context).size.width,
                     height: 245,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: 4,
                       itemBuilder: (context, index) {
-                        return VideoCard(long: false);
+                        return const VideoCard(long: false);
                       },
                     ),
                   ),
@@ -89,14 +89,14 @@ class VideosPage extends StatelessWidget {
                   ),
                 ),
                 SliverToBoxAdapter(
-                  child: Container(
+                  child: SizedBox(
                     width: MediaQuery.of(context).size.width,
                     height: 245,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: 4,
                       itemBuilder: (context, index) {
-                        return VideoCard(long: false);
+                        return const VideoCard(long: false);
                       },
                     ),
                   ),

@@ -27,7 +27,7 @@ class Menu extends StatelessWidget {
             width: MediaQuery.of(context).size.width * 0.33,
             height: MediaQuery.of(context).size.height * 0.67,
             decoration: BoxDecoration(
-              color: Color(0x80FFFFFF),
+              color: const Color(0x80FFFFFF),
               borderRadius: BorderRadius.circular(10),
             ),
           ),
@@ -37,7 +37,7 @@ class Menu extends StatelessWidget {
           child: Container(
             width: MediaQuery.of(context).size.width,
             height: 135,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage("assets/images/navwave.png"),
                   fit: BoxFit.fitWidth),
@@ -49,7 +49,7 @@ class Menu extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.fromLTRB(0, 28, 10, 0),
               child: IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.close,
                   color: Colors.white,
                 ),
@@ -69,14 +69,14 @@ class Menu extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Row(
+                    const Row(
                       children: <Widget>[
                         CircleAvatar(
                           radius: 30,
                           backgroundImage: AssetImage('assets/images/user.png'),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 16.0),
+                          padding: EdgeInsets.only(left: 16.0),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -108,13 +108,13 @@ class Menu extends StatelessWidget {
                         )
                       ],
                     ),
-                    Spacer(
+                    const Spacer(
                       flex: 3,
                     ),
-                    Row(
+                    const Row(
                       children: <Widget>[
                         Padding(
-                          padding: const EdgeInsets.only(right: 20.0),
+                          padding: EdgeInsets.only(right: 20.0),
                           child: Icon(
                             BoxIcons.bx_home_circle,
                             color: Colors.white,
@@ -133,11 +133,11 @@ class Menu extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Spacer(flex: 2),
-                    Row(
+                    const Spacer(flex: 2),
+                    const Row(
                       children: <Widget>[
                         Padding(
-                          padding: const EdgeInsets.only(right: 20.0),
+                          padding: EdgeInsets.only(right: 20.0),
                           child: Icon(
                             BoxIcons.bx_edit,
                             color: Colors.white,
@@ -156,11 +156,11 @@ class Menu extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Spacer(flex: 2),
-                    Row(
+                    const Spacer(flex: 2),
+                    const Row(
                       children: <Widget>[
                         Padding(
-                          padding: const EdgeInsets.only(right: 20.0),
+                          padding: EdgeInsets.only(right: 20.0),
                           child: Icon(
                             BoxIcons.bx_book_alt,
                             color: Colors.white,
@@ -179,11 +179,11 @@ class Menu extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Spacer(flex: 2),
-                    Row(
+                    const Spacer(flex: 2),
+                    const Row(
                       children: <Widget>[
                         Padding(
-                          padding: const EdgeInsets.only(right: 20.0),
+                          padding: EdgeInsets.only(right: 20.0),
                           child: Icon(
                             BoxIcons.bx_chat,
                             color: Colors.white,
@@ -202,11 +202,11 @@ class Menu extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Spacer(flex: 2),
-                    Row(
+                    const Spacer(flex: 2),
+                    const Row(
                       children: <Widget>[
                         Padding(
-                          padding: const EdgeInsets.only(right: 20.0),
+                          padding: EdgeInsets.only(right: 20.0),
                           child: Icon(
                             BoxIcons.bx_calendar,
                             color: Colors.white,
@@ -225,7 +225,7 @@ class Menu extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Spacer(flex: 2),
+                    const Spacer(flex: 2),
                     SizedBox(
                       height: 1,
                       width: 200,
@@ -233,11 +233,11 @@ class Menu extends StatelessWidget {
                         color: Colors.white54,
                       ),
                     ),
-                    Spacer(flex: 2),
-                    Row(
+                    const Spacer(flex: 2),
+                    const Row(
                       children: <Widget>[
                         Padding(
-                          padding: const EdgeInsets.only(right: 20.0),
+                          padding: EdgeInsets.only(right: 20.0),
                           child: Icon(
                             BoxIcons.bx_cog,
                             color: Colors.white,
@@ -256,11 +256,11 @@ class Menu extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Spacer(flex: 2),
-                    Row(
+                    const Spacer(flex: 2),
+                    const Row(
                       children: <Widget>[
                         Padding(
-                          padding: const EdgeInsets.only(right: 20.0),
+                          padding: EdgeInsets.only(right: 20.0),
                           child: Icon(
                             BoxIcons.bx_help_circle,
                             color: Colors.white,
@@ -279,7 +279,7 @@ class Menu extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Spacer(flex: 5),
+                    const Spacer(flex: 5),
                   ],
                 ),
               ),
