@@ -84,7 +84,7 @@ class _TopBarState extends State<TopBar> {
               controller: widget.controller,
               expands: false,
               inputFormatters: [
-                BlacklistingTextInputFormatter.singleLineFormatter
+                FilteringTextInputFormatter.singleLineFormatter
               ],
               keyboardType: TextInputType.text,
               suffix: Padding(

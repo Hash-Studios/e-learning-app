@@ -21,16 +21,16 @@ environment:
   sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
-  cloud_firestore: ^2.5.4
+  cloud_firestore: ^4.14.0
   cupertino_icons: ^1.0.3
-  firebase_analytics: ^8.3.4
-  firebase_auth: ^3.1.4
+  firebase_analytics: ^10.8.0
+  firebase_auth: ^4.20.0
   flutter:
     sdk: flutter
-  flutter_calendar_carousel: ^2.0.3
-  google_sign_in: ^5.2.0
+  flutter_calendar_carousel: ^2.6.11
+  google_sign_in: ^6.2.1
   provider: ^6.0.1
-  shared_preferences: ^2.0.8
+  shared_preferences: ^2.2.2
 
 dev_dependencies:
   flutter_test:
